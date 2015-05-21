@@ -39,7 +39,7 @@ public class DocumentHibernateService {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         try {
             session.beginTransaction();
-            Query q = session.createQuery("FROM DocType as dt, DocumentDocType as ddt WHERE ddt.documentFk=:id AND dt.docType=ddt.docTypeFk");
+            Query q = session.createQuery("FROM DocType WHERE docType=(SELECT docTypeFk FROM DocumentDocType WHERE documentFk=:id)");
             q.setInteger("id", id);
             docType = (DocType) q.uniqueResult();
         } finally {
@@ -47,6 +47,4 @@ public class DocumentHibernateService {
         }
         return docType;
     }
-
-    public List<DocType> findSelectableDocTypes()
 }

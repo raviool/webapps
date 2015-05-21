@@ -21,6 +21,10 @@
 						</td>
 					</tr>
 					<tr bgcolor='#ffffff'>
+						<td bgcolor='#cccccc' nowrap>Dokumendi tüüp:</td>
+						<td>${docType.typeName}</td>
+					</tr>
+					<tr bgcolor='#ffffff'>
 						<td bgcolor='#cccccc' nowrap>Nimetus:</td>
 						<td>&nbsp;<b><font color='#0000ff'><form:input path="name"/></font></b><form:errors path="name" /></td>
 					</tr>

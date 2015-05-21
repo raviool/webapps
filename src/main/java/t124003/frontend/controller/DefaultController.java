@@ -51,6 +51,7 @@ public class DefaultController {
 			document = documentService.findById(Integer.parseInt(document_id));
 			docStatusType = docStatusTypeService.findById(Integer.parseInt(document_id));
 			docAttributes = docAttributeService.findDocumentAttributes(Integer.parseInt(document_id));
+			docType = documentService.findDocType(document);
 			for (DocAttribute da: docAttributes) {
 				da.setSelectionValues(docAttributeService.findSelectionAttributeValues(da));
 			}
@@ -63,6 +64,7 @@ public class DefaultController {
 			model.addAttribute("document", document);
 			model.addAttribute("docStatusType", docStatusType);
 			model.addAttribute("docAttributes", docAttributes);
+			model.addAttribute("docType", docType);
 			return "documentForm";
 		} else {
 			// Log.
