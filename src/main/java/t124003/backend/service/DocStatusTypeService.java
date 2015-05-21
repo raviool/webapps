@@ -11,12 +11,12 @@ import t124003.backend.db.DBConnection;
 import t124003.backend.model.DocType;
 
 @Service("docTypeService")
-public class DocTypeService {
+public class DocStatusTypeService {
 	private Connection c;
 	
-	public DocTypeService() {}
+	public DocStatusTypeService() {}
 	
-	public DocTypeService(Connection c) {
+	public DocStatusTypeService(Connection c) {
         try {
             this.setConnection(c);
         } catch(Exception e) {
@@ -28,7 +28,7 @@ public class DocTypeService {
 		Statement s = null;
 		ResultSet rs = null;
 		DocType docType = null;
-		String query = "select type_name from doc_type where doc_type=(select doc_type_fk from document_doc_type where document_fk=" + id + ");";
+		String query = "select type_name from doc_status_type where doc_status_type=(select doc_status_type_fk from document where document=" + id + ");";
 		
 		try {
 			s = DBConnection.getConnection().createStatement();

@@ -57,21 +57,9 @@
 							</td>
 						</tr>
 					</c:forEach>
-					<!--<tr bgcolor='#ffffff'>
-							<td bgcolor='#cccccc' nowrap>Saatjad:</td>
-							<td>&nbsp;<b><font color='#0000ff'><form:input path="description"/></font></b><form:errors path="description" /></td>
-						</tr>
-						<tr bgcolor='#ffffff'>
-							<td bgcolor='#cccccc' nowrap>Vastamise tähtaeg:</td>
-							<td>&nbsp;<b><font color='#0000ff'><form:input path="description"/></font></b><form:errors path="description" /></td>
-						</tr>
-						<tr bgcolor='#ffffff'>
-							<td bgcolor='#cccccc' nowrap>Formaat:</td>
-							<td>&nbsp;<b><font color='#0000ff'><form:input path="description"/></font></b><form:errors path="description" /></td>
-						</tr>-->
 					<tr bgcolor='#ffffff'>
-						<td bgcolor='#cccccc' nowrap>Dokumendi tüüp:</td>
-						<td>&nbsp;${docType.getTypeName()}&nbsp;
+						<td bgcolor='#cccccc' nowrap>Dokumendi staatus:</td>
+						<td>&nbsp;${docStatusType.typeName}&nbsp;
 						</td>
 					</tr>
 				</table>

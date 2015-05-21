@@ -12,7 +12,7 @@ import t124003.backend.model.DocAttribute;
 import t124003.backend.model.DocType;
 import t124003.backend.model.Document;
 import t124003.backend.service.DocAttributeHibernateService;
-import t124003.backend.service.DocTypeService;
+import t124003.backend.service.DocStatusTypeService;
 import t124003.backend.service.DocumentHibernateService;
 
 import java.util.List;
@@ -24,7 +24,7 @@ public class DefaultController {
 	private DocumentHibernateService documentService;
 
 	@Autowired
-	private DocTypeService docTypeService;
+	private DocStatusTypeService docStatusTypeService;
 
 	@Autowired
 	private DocAttributeHibernateService docAttributeService;
@@ -44,12 +44,12 @@ public class DefaultController {
 	   Seega tuleks see ka siin realiseerida.*/
 
 	@RequestMapping(value="/s", method=RequestMethod.GET, params = {"id"})
-	public String getDocument(@RequestParam(value="id") String document_id, @ModelAttribute DocType docType, Model model) {
+	public String getDocument(@RequestParam(value="id") String document_id, @ModelAttribute DocType docStatusType, Model model) {
 		try {
 			/* Kui siia lisada mingi uus objekt (va. dokument, mis on kirjeldatud .jsp failis) koos vastava teenusega, 
 			   siis tuleb ülesse lisada vastav ModelAttribute.*/
 			document = documentService.findById(Integer.parseInt(document_id));
-			docType = docTypeService.findById(Integer.parseInt(document_id));
+			docStatusType = docStatusTypeService.findById(Integer.parseInt(document_id));
 			docAttributes = docAttributeService.findDocumentAttributes(Integer.parseInt(document_id));
 			for (DocAttribute da: docAttributes) {
 				da.setSelectionValues(docAttributeService.findSelectionAttributeValues(da));
@@ -61,7 +61,7 @@ public class DefaultController {
 		}
 		if (document != null) {
 			model.addAttribute("document", document);
-			model.addAttribute("docType", docType);
+			model.addAttribute("docStatusType", docStatusType);
 			model.addAttribute("docAttributes", docAttributes);
 			return "documentForm";
 		} else {
