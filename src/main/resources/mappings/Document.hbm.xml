@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="t124003.backend.model.Document" table="document" schema="public" catalog="t124003_dokumendid">
+        <id name="document">
+            <column name="document" sql-type="numeric" precision="10" not-null="true"/>
+        </id>
+        <property name="docNr">
+            <column name="doc_nr" sql-type="text" length="2147483647"/>
+        </property>
+        <property name="name">
+            <column name="name" sql-type="text" length="2147483647"/>
+        </property>
+        <property name="description">
+            <column name="description" sql-type="text" length="2147483647"/>
+        </property>
+        <property name="created">
+            <column name="created" sql-type="timestamp"/>
+        </property>
+        <property name="createdBy">
+            <column name="created_by" sql-type="numeric" precision="10"/>
+        </property>
+        <property name="updated">
+            <column name="updated" sql-type="timestamp"/>
+        </property>
+        <property name="updatedBy">
+            <column name="updated_by" sql-type="numeric" precision="10"/>
+        </property>
+        <property name="docStatusTypeFk">
+            <column name="doc_status_type_fk" sql-type="numeric" precision="10"/>
+        </property>
+        <property name="filename">
+            <column name="filename" sql-type="text" length="2147483647"/>
+        </property>
+    </class>
+</hibernate-mapping>

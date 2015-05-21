@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="t124003.backend.model.Person" table="person" schema="public" catalog="t124003_dokumendid">
+        <id name="person">
+            <column name="person" sql-type="numeric" precision="10" not-null="true"/>
+        </id>
+        <property name="firstName">
+            <column name="first_name" sql-type="varchar" length="100"/>
+        </property>
+        <property name="lastName">
+            <column name="last_name" sql-type="varchar" length="100"/>
+        </property>
+        <property name="identityCode">
+            <column name="identity_code" sql-type="varchar" length="20"/>
+        </property>
+        <property name="birthDate">
+            <column name="birth_date" sql-type="date"/>
+        </property>
+        <property name="createdBy">
+            <column name="created_by" sql-type="numeric" precision="10"/>
+        </property>
+        <property name="updatedBy">
+            <column name="updated_by" sql-type="numeric" precision="10"/>
+        </property>
+        <property name="created">
+            <column name="created" sql-type="timestamp"/>
+        </property>
+        <property name="updated">
+            <column name="updated" sql-type="timestamp"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="t124003.backend.model.Address" table="address" schema="public" catalog="t124003_dokumendid">
+        <id name="address">
+            <column name="address" sql-type="numeric" precision="10" not-null="true"/>
+        </id>
+        <property name="addressTypeFk">
+            <column name="address_type_fk" sql-type="numeric" precision="10"/>
+        </property>
+        <property name="subjectFk">
+            <column name="subject_fk" sql-type="numeric" precision="10"/>
+        </property>
+        <property name="subjectTypeFk">
+            <column name="subject_type_fk" sql-type="numeric" precision="10"/>
+        </property>
+        <property name="country">
+            <column name="country" sql-type="varchar" length="50"/>
+        </property>
+        <property name="county">
+            <column name="county" sql-type="varchar" length="100"/>
+        </property>
+        <property name="townVillage">
+            <column name="town_village" sql-type="varchar" length="100"/>
+        </property>
+        <property name="streetAddress">
+            <column name="street_address" sql-type="varchar" length="100"/>
+        </property>
+        <property name="zipcode">
+            <column name="zipcode" sql-type="varchar" length="50"/>
+        </property>
+    </class>
+</hibernate-mapping>

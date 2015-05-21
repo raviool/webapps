@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="t124003.backend.model.SubjectType" table="subject_type" schema="public" catalog="t124003_dokumendid">
+        <id name="subjectType">
+            <column name="subject_type" sql-type="numeric" precision="10" not-null="true"/>
+        </id>
+        <property name="typeName">
+            <column name="type_name" sql-type="varchar" length="200"/>
+        </property>
+    </class>
+</hibernate-mapping>

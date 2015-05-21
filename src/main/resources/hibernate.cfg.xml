@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/t124003_dokumendid</property>
+        <property name="dialect">org.hibernate.dialect.PostgreSQL82Dialect</property>
+        <property name="current_session_context_class">thread</property>
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCachingRegionFactory</property>
+        <property name="show_sql">true</property>
+        <property name="connection.username">t124003</property>
+        <property name="connection.password">87uFxO04</property>
+
+        <mapping resource="mappings/Address.hbm.xml"/>
+        <mapping resource="mappings/AddressType.hbm.xml"/>
+        <mapping resource="mappings/AtrTypeSelectionValue.hbm.xml"/>
+        <mapping resource="mappings/Contact.hbm.xml"/>
+        <mapping resource="mappings/ContactType.hbm.xml"/>
+        <mapping resource="mappings/Customer.hbm.xml"/>
+        <mapping resource="mappings/DataType.hbm.xml"/>
+        <mapping resource="mappings/DocAttribute.hbm.xml"/>
+        <mapping resource="mappings/DocAttributeType.hbm.xml"/>
+        <mapping resource="mappings/DocCatalog.hbm.xml"/>
+        <mapping resource="mappings/DocCatalogType.hbm.xml"/>
+        <mapping resource="mappings/DocStatus.hbm.xml"/>
+        <mapping resource="mappings/DocStatusType.hbm.xml"/>
+        <mapping resource="mappings/DocSubject.hbm.xml"/>
+        <mapping resource="mappings/DocSubjectRelationType.hbm.xml"/>
+        <mapping resource="mappings/DocSubjectType.hbm.xml"/>
+        <mapping resource="mappings/DocType.hbm.xml"/>
+        <mapping resource="mappings/DocTypeAttribute.hbm.xml"/>
+        <mapping resource="mappings/Document.hbm.xml"/>
+        <mapping resource="mappings/DocumentDocCatalog.hbm.xml"/>
+        <mapping resource="mappings/DocumentDocType.hbm.xml"/>
+        <mapping resource="mappings/Employee.hbm.xml"/>
+        <mapping resource="mappings/EmployeeRole.hbm.xml"/>
+        <mapping resource="mappings/EmployeeRoleType.hbm.xml"/>
+        <mapping resource="mappings/EntPerRelationType.hbm.xml"/>
+        <mapping resource="mappings/Enterprise.hbm.xml"/>
+        <mapping resource="mappings/EnterprisePersonRelation.hbm.xml"/>
+        <mapping resource="mappings/Person.hbm.xml"/>
+        <mapping resource="mappings/StructUnit.hbm.xml"/>
+        <mapping resource="mappings/SubjectAttribute.hbm.xml"/>
+        <mapping resource="mappings/SubjectAttributeType.hbm.xml"/>
+        <mapping resource="mappings/SubjectType.hbm.xml"/>
+        <mapping resource="mappings/UserAccount.hbm.xml"/>
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+
+    </session-factory>
+</hibernate-configuration>

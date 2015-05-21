@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="t124003.backend.model.DocAttributeType" table="doc_attribute_type" schema="public"
+           catalog="t124003_dokumendid">
+        <id name="docAttributeType">
+            <column name="doc_attribute_type" sql-type="numeric" precision="10" not-null="true"/>
+        </id>
+        <property name="defaultSelectionIdFk">
+            <column name="default_selection_id_fk" sql-type="numeric" precision="10"/>
+        </property>
+        <property name="typeName">
+            <column name="type_name" sql-type="text" length="2147483647"/>
+        </property>
+        <property name="defaultValueText">
+            <column name="default_value_text" sql-type="text" length="2147483647"/>
+        </property>
+        <property name="dataTypeFk">
+            <column name="data_type_fk" sql-type="numeric" precision="1"/>
+        </property>
+        <property name="multipleAttributes">
+            <column name="multiple_attributes" sql-type="varchar" length="1"/>
+        </property>
+    </class>
+</hibernate-mapping>

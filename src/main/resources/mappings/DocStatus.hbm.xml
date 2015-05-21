@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="t124003.backend.model.DocStatus" table="doc_status" schema="public" catalog="t124003_dokumendid">
+        <id name="docStatus">
+            <column name="doc_status" sql-type="numeric" precision="10" not-null="true"/>
+        </id>
+        <property name="documentFk">
+            <column name="document_fk" sql-type="numeric" precision="10"/>
+        </property>
+        <property name="docStatusTypeFk">
+            <column name="doc_status_type_fk" sql-type="numeric" precision="10"/>
+        </property>
+        <property name="statusBegin">
+            <column name="status_begin" sql-type="timestamp"/>
+        </property>
+        <property name="statusEnd">
+            <column name="status_end" sql-type="timestamp"/>
+        </property>
+        <property name="createdBy">
+            <column name="created_by" sql-type="numeric" precision="10"/>
+        </property>
+    </class>
+</hibernate-mapping>

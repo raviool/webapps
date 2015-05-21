@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="t124003.backend.model.DocTypeAttribute" table="doc_type_attribute" schema="public"
+           catalog="t124003_dokumendid">
+        <id name="docTypeAttribute">
+            <column name="doc_type_attribute" sql-type="numeric" precision="10" not-null="true"/>
+        </id>
+        <property name="docAttributeTypeFk">
+            <column name="doc_attribute_type_fk" sql-type="numeric" precision="10"/>
+        </property>
+        <property name="docTypeFk">
+            <column name="doc_type_fk" sql-type="numeric" precision="10"/>
+        </property>
+        <property name="orderby">
+            <column name="orderby" sql-type="numeric" precision="10"/>
+        </property>
+        <property name="required">
+            <column name="required" sql-type="varchar" length="1"/>
+        </property>
+        <property name="createdByDefault">
+            <column name="created_by_default" sql-type="varchar" length="1"/>
+        </property>
+    </class>
+</hibernate-mapping>

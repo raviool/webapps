@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="t124003.backend.model.UserAccount" table="user_account" schema="public" catalog="t124003_dokumendid">
+        <id name="userAccount">
+            <column name="user_account" sql-type="numeric" precision="10" not-null="true"/>
+        </id>
+        <property name="subjectTypeFk">
+            <column name="subject_type_fk" sql-type="numeric" precision="10"/>
+        </property>
+        <property name="subjectFk">
+            <column name="subject_fk" sql-type="numeric" precision="10"/>
+        </property>
+        <property name="username">
+            <column name="username" sql-type="varchar" length="50"/>
+        </property>
+        <property name="passw">
+            <column name="passw" sql-type="varchar" length="300"/>
+        </property>
+        <property name="status">
+            <column name="status" sql-type="numeric" precision="10"/>
+        </property>
+        <property name="validFrom">
+            <column name="valid_from" sql-type="date"/>
+        </property>
+        <property name="validTo">
+            <column name="valid_to" sql-type="date"/>
+        </property>
+        <property name="createdBy">
+            <column name="created_by" sql-type="numeric" precision="10"/>
+        </property>
+        <property name="created">
+            <column name="created" sql-type="timestamp"/>
+        </property>
+        <property name="passwordNeverExpires">
+            <column name="password_never_expires" sql-type="varchar" length="1"/>
+        </property>
+    </class>
+</hibernate-mapping>

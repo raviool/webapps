@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="t124003.backend.model.DocumentDocType" table="document_doc_type" schema="public"
+           catalog="t124003_dokumendid">
+        <id name="documentDocType">
+            <column name="document_doc_type" sql-type="numeric" precision="10" not-null="true"/>
+        </id>
+        <property name="docTypeFk">
+            <column name="doc_type_fk" sql-type="numeric" precision="10"/>
+        </property>
+        <property name="documentFk">
+            <column name="document_fk" sql-type="numeric" precision="10"/>
+        </property>
+    </class>
+</hibernate-mapping>

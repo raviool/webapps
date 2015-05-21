@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="t124003.backend.model.DocumentDocCatalog" table="document_doc_catalog" schema="public"
+           catalog="t124003_dokumendid">
+        <id name="documentDocCatalog">
+            <column name="document_doc_catalog" sql-type="numeric" precision="10" not-null="true"/>
+        </id>
+        <property name="documentFk">
+            <column name="document_fk" sql-type="numeric" precision="10"/>
+        </property>
+        <property name="docCatalogFk">
+            <column name="doc_catalog_fk" sql-type="numeric" precision="10"/>
+        </property>
+        <property name="catalogTime">
+            <column name="catalog_time" sql-type="timestamp"/>
+        </property>
+    </class>
+</hibernate-mapping>

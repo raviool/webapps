@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="PostgreSQL - t124003_dokumendid@localhost" uuid="1e8d0fbb-0d05-481b-9b40-b1225ec6cde1">
+    <database-info product="PostgreSQL" version="9.4.1" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact"/>
+    <schema name="public" catalog="t124003_dokumendid"/>
+    <table name="address" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="address" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnYWRkcmVzc19pZCc6OnJlZ2NsYXNzKQ==" autoIncrement="true"/>
+      <column name="address_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="subject_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="subject_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="country" sqlType="varchar" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="county" sqlType="varchar" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="town_village" sqlType="varchar" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="street_address" sqlType="varchar" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="zipcode" sqlType="varchar" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="address_pk" columns="address"/>
+      <index name="address_idx1" unique="false" columns="address"/>
+      <index name="address_idx2" unique="false" columns="address_type_fk"/>
+      <index name="address_idx3" unique="false" columns="subject_type_fk"/>
+      <index name="address_idx4" unique="false" columns="upper((country)::text)"/>
+      <index name="address_idx5" unique="false" columns="upper((county)::text)"/>
+      <index name="address_idx6" unique="false" columns="upper((town_village)::text)"/>
+      <index name="address_idx7" unique="false" columns="upper((street_address)::text)"/>
+      <index name="address_idx8" unique="false" columns="upper((zipcode)::text)"/>
+    </table>
+    <table name="address_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="address_type" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="address_type" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2"/>
+      <column name="type_name" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="address_type_pk" columns="address_type"/>
+    </table>
+    <table name="atr_type_selection_value" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="atr_type_selection_value" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnYXRyX3R5cGVfc2VsZWN0aW9uX3ZhbHVlX2lkJzo6cmVnY2xhc3Mp" autoIncrement="true"/>
+      <column name="doc_attribute_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="value_text" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="orderby" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <primary-key name="atr_type_selection_value_pk" columns="atr_type_selection_value"/>
+      <index name="atr_type_selection_value_idx1" unique="false" columns="atr_type_selection_value"/>
+      <index name="atr_type_selection_value_idx2" unique="false" columns="doc_attribute_type_fk"/>
+    </table>
+    <table name="atr_type_selection_value_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="contact" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="contact" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnY29udGFjdF9pZCc6OnJlZ2NsYXNzKQ==" autoIncrement="true"/>
+      <column name="subject_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="contact_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="value_text" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="orderby" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="subject_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="note" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="contact_pk" columns="contact"/>
+      <index name="contact_idx1" unique="false" columns="contact"/>
+      <index name="contact_idx2" unique="false" columns="subject_fk"/>
+      <index name="contact_idx3" unique="false" columns="subject_type_fk"/>
+      <index name="contact_idx4" unique="false" columns="contact_type_fk"/>
+      <index name="contact_idx5" unique="false" columns="upper(value_text)"/>
+    </table>
+    <table name="contact_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="contact_type" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="contact_type" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2"/>
+      <column name="type_name" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="contact_type_pk" columns="contact_type"/>
+    </table>
+    <table name="customer" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="customer" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnY3VzdG9tZXJfaWQnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
+      <column name="subject_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="subject_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <primary-key name="customer_pk" columns="customer"/>
+      <index name="customer_idx1" unique="false" columns="customer"/>
+      <index name="customer_idx2" unique="false" columns="subject_fk"/>
+      <index name="customer_idx3" unique="false" columns="subject_type_fk"/>
+    </table>
+    <table name="customer_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="data_type" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="data_type" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2"/>
+      <column name="type_name" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="data_type_pk" columns="data_type"/>
+    </table>
+    <table name="doc_attribute" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="doc_attribute" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnZG9jX2F0dHJpYnV0ZV9pZCc6OnJlZ2NsYXNzKQ==" autoIncrement="true"/>
+      <column name="atr_type_selection_value_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="doc_attribute_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="document_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="type_name" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="value_text" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="value_number" sqlType="numeric" precision="131089" scale="0" nullable="true" jdbcType="2"/>
+      <column name="value_date" sqlType="date" precision="13" scale="0" nullable="true" jdbcType="91"/>
+      <column name="data_type" sqlType="numeric" precision="1" scale="0" nullable="true" jdbcType="2"/>
+      <column name="orderby" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="required" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="doc_attribute_pk" columns="doc_attribute"/>
+      <index name="doc_attribute_idx1" unique="false" columns="doc_attribute"/>
+      <index name="doc_attribute_idx2" unique="false" columns="document_fk"/>
+      <index name="doc_attribute_idx3" unique="false" columns="doc_attribute_type_fk"/>
+      <index name="doc_attribute_idx4" unique="false" columns="atr_type_selection_value_fk"/>
+      <index name="doc_attribute_idx5" unique="false" columns="upper(type_name)"/>
+      <index name="doc_attribute_idx6" unique="false" columns="upper(value_text)"/>
+      <index name="doc_attribute_idx7" unique="false" columns="value_number,data_type"/>
+      <index name="doc_attribute_idx8" unique="false" columns="value_date,data_type"/>
+    </table>
+    <table name="doc_attribute_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="doc_attribute_type" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="doc_attribute_type" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnZG9jX2F0dHJpYnV0ZV90eXBlX2lkJzo6cmVnY2xhc3Mp" autoIncrement="true"/>
+      <column name="default_selection_id_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="type_name" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="default_value_text" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="data_type_fk" sqlType="numeric" precision="1" scale="0" nullable="true" jdbcType="2"/>
+      <column name="multiple_attributes" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="doc_attribute_type_pk" columns="doc_attribute_type"/>
+      <index name="doc_attribute_type_idx1" unique="false" columns="doc_attribute_type"/>
+      <index name="doc_attribute_type_idx2" unique="false" columns="upper(type_name)"/>
+    </table>
+    <table name="doc_attribute_type_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="doc_catalog" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="doc_catalog" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnZG9jX2NhdGFsb2dfaWQnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
+      <column name="catalog_owner_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="doc_catalog_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="name" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="level" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="content_updated" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="content_updated_by" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="upper_catalog_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="folder" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="doc_catalog_pk" columns="doc_catalog"/>
+      <index name="doc_catalog_idx1" unique="false" columns="doc_catalog"/>
+      <index name="doc_catalog_idx2" unique="false" columns="upper(name)"/>
+      <index name="doc_catalog_idx3" unique="false" columns="upper(description)"/>
+      <index name="doc_catalog_idx4" unique="false" columns="upper_catalog_fk"/>
+      <index name="doc_catalog_idx5" unique="false" columns="catalog_owner_fk"/>
+      <index name="doc_catalog_idx6" unique="false" columns="content_updated"/>
+      <index name="doc_catalog_idx7" unique="false" columns="content_updated_by"/>
+      <index name="doc_catalog_idx8" unique="false" columns="upper(folder)"/>
+    </table>
+    <table name="doc_catalog_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="doc_catalog_type" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="doc_catalog_type" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2"/>
+      <column name="type_name" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="doc_catalog_type_pk" columns="doc_catalog_type"/>
+    </table>
+    <table name="doc_status" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="doc_status" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnZG9jX3N0YXR1c19pZCc6OnJlZ2NsYXNzKQ==" autoIncrement="true"/>
+      <column name="document_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="doc_status_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="status_begin" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="status_end" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="created_by" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <primary-key name="doc_status_pk" columns="doc_status"/>
+      <index name="doc_status_idx1" unique="false" columns="doc_status"/>
+      <index name="doc_status_idx2" unique="false" columns="document_fk"/>
+      <index name="doc_status_idx3" unique="false" columns="doc_status_type_fk"/>
+      <index name="doc_status_idx4" unique="false" columns="created_by"/>
+      <index name="doc_status_idx5" unique="false" columns="status_begin"/>
+      <index name="doc_status_idx6" unique="false" columns="status_end"/>
+    </table>
+    <table name="doc_status_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="doc_status_type" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="doc_status_type" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnZG9jX3N0YXR1c190eXBlX2lkJzo6cmVnY2xhc3Mp" autoIncrement="true"/>
+      <column name="type_name" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="doc_status_type_pk" columns="doc_status_type"/>
+    </table>
+    <table name="doc_status_type_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="doc_subject" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="doc_subject" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnZG9jX3N1YmplY3RfaWQnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
+      <column name="doc_subject_relation_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="doc_subject_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="document_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="subject_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="note" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="doc_subject_pk" columns="doc_subject"/>
+      <index name="doc_subject_idx1" unique="false" columns="doc_subject"/>
+      <index name="doc_subject_idx2" unique="false" columns="subject_fk"/>
+      <index name="doc_subject_idx3" unique="false" columns="subject_fk,doc_subject_type_fk"/>
+    </table>
+    <table name="doc_subject_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="doc_subject_relation_type" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="doc_subject_relation_type" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2"/>
+      <column name="type_name" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="doc_subject_relation_type_pk" columns="doc_subject_relation_type"/>
+    </table>
+    <table name="doc_subject_type" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="doc_subject_type" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2"/>
+      <column name="type_name" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="doc_subject_type_pk" columns="doc_subject_type"/>
+    </table>
+    <table name="doc_type" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="doc_type" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnZG9jX3R5cGVfaWQnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
+      <column name="super_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="level" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="type_name" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="doc_type_pk" columns="doc_type"/>
+      <index name="doc_type_idx1" unique="false" columns="doc_type"/>
+      <index name="doc_type_idx2" unique="false" columns="type_name"/>
+      <index name="doc_type_idx3" unique="false" columns="super_type_fk"/>
+    </table>
+    <table name="doc_type_attribute" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="doc_type_attribute" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnZG9jX3R5cGVfYXR0cmlidXRlX2lkJzo6cmVnY2xhc3Mp" autoIncrement="true"/>
+      <column name="doc_attribute_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="doc_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="orderby" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="required" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="created_by_default" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="doc_type_attribute_pk" columns="doc_type_attribute"/>
+      <index name="doc_type_attribute_idx1" unique="false" columns="doc_type_attribute"/>
+      <index name="doc_type_attribute_idx2" unique="false" columns="doc_attribute_type_fk"/>
+      <index name="doc_type_attribute_idx3" unique="false" columns="doc_type_fk"/>
+    </table>
+    <table name="doc_type_attribute_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="doc_type_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="document" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="document" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnZG9jdW1lbnRfaWQnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
+      <column name="doc_nr" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="name" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="created" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="created_by" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="updated" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="updated_by" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="doc_status_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="filename" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="document_pk" columns="document"/>
+      <index name="document_idx1" unique="false" columns="document"/>
+      <index name="document_idx10" unique="false" columns="doc_status_type_fk"/>
+      <index name="document_idx11" unique="false" columns="upper(filename)"/>
+      <index name="document_idx2" unique="false" columns="upper(doc_nr)"/>
+      <index name="document_idx4" unique="false" columns="upper(name)"/>
+      <index name="document_idx5" unique="false" columns="description"/>
+      <index name="document_idx6" unique="false" columns="created"/>
+      <index name="document_idx7" unique="false" columns="created_by"/>
+      <index name="document_idx8" unique="false" columns="updated"/>
+      <index name="document_idx9" unique="false" columns="updated_by"/>
+    </table>
+    <table name="document_doc_catalog" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="document_doc_catalog" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnZG9jdW1lbnRfZG9jX2NhdGFsb2dfaWQnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
+      <column name="document_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="doc_catalog_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="catalog_time" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <primary-key name="document_doc_catalog_pk" columns="document_doc_catalog"/>
+      <index name="document_doc_catalog_idx1" unique="false" columns="document_doc_catalog"/>
+      <index name="document_doc_catalog_idx2" unique="false" columns="document_fk"/>
+      <index name="document_doc_catalog_idx3" unique="false" columns="doc_catalog_fk"/>
+    </table>
+    <table name="document_doc_catalog_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="document_doc_type" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="document_doc_type" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnZG9jdW1lbnRfZG9jX3R5cGVfaWQnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
+      <column name="doc_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="document_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <primary-key name="document_doc_type_pk" columns="document_doc_type"/>
+      <index name="document_doc_type_idx1" unique="false" columns="document_doc_type"/>
+      <index name="document_doc_type_idx2" unique="false" columns="doc_type_fk"/>
+      <index name="document_doc_type_idx3" unique="false" columns="document_fk"/>
+    </table>
+    <table name="document_doc_type_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="document_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="employee" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="employee" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnZW1wbG95ZWVfaWQnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
+      <column name="person_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="enterprise_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="struct_unit_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="active" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="employee_pk" columns="employee"/>
+      <index name="employee_idx1" unique="false" columns="employee"/>
+      <index name="employee_idx2" unique="false" columns="person_fk"/>
+      <index name="employee_idx3" unique="false" columns="enterprise_fk"/>
+      <index name="employee_idx4" unique="false" columns="struct_unit_fk"/>
+    </table>
+    <table name="employee_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="employee_role" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="employee_role" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnZW1wbG95ZWVfcm9sZV9pZCc6OnJlZ2NsYXNzKQ==" autoIncrement="true"/>
+      <column name="employee_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="employee_role_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="active" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="employee_role_pk" columns="employee_role"/>
+      <index name="employee_role_idx1" unique="false" columns="employee_role"/>
+      <index name="employee_role_idx2" unique="false" columns="employee_fk"/>
+      <index name="employee_role_idx3" unique="false" columns="employee_role_type_fk"/>
+    </table>
+    <table name="employee_role_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="employee_role_type" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="employee_role_type" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2"/>
+      <column name="type_name" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="employee_role_type_pk" columns="employee_role_type"/>
+    </table>
+    <table name="ent_per_relation_type" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="ent_per_relation_type" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2"/>
+      <column name="type_name" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="ent_per_relation_type_pk" columns="ent_per_relation_type"/>
+    </table>
+    <table name="enterprise" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="enterprise" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnZW50ZXJwcmlzZV9pZCc6OnJlZ2NsYXNzKQ==" autoIncrement="true"/>
+      <column name="name" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="full_name" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="created_by" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="updated_by" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="created" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="updated" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <primary-key name="enterprise_pk" columns="enterprise"/>
+      <index name="enterprise_idx1" unique="false" columns="enterprise"/>
+      <index name="enterprise_idx2" unique="false" columns="upper(name)"/>
+      <index name="enterprise_idx3" unique="false" columns="upper(full_name)"/>
+    </table>
+    <table name="enterprise_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="enterprise_person_relation" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="enterprise_person_relation" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnZW50ZXJwcmlzZV9wZXJzb25fcmVsYXRpb25faWQnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
+      <column name="person_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="enterprise_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="ent_per_relation_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <primary-key name="enterprise_person_relation_pk" columns="enterprise_person_relation"/>
+      <index name="enterprise_person_relation_idx1" unique="false" columns="enterprise_person_relation"/>
+      <index name="enterprise_person_relation_idx2" unique="false" columns="person_fk"/>
+      <index name="enterprise_person_relation_idx3" unique="false" columns="enterprise_fk"/>
+      <index name="enterprise_person_relation_idx4" unique="false" columns="ent_per_relation_type_fk"/>
+    </table>
+    <table name="enterprise_person_relation_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="person" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="person" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgncGVyc29uX2lkJzo6cmVnY2xhc3Mp" autoIncrement="true"/>
+      <column name="first_name" sqlType="varchar" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="last_name" sqlType="varchar" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="identity_code" sqlType="varchar" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="birth_date" sqlType="date" precision="13" scale="0" nullable="true" jdbcType="91"/>
+      <column name="created_by" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="updated_by" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="created" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="updated" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <primary-key name="person_pk" columns="person"/>
+      <index name="person_idx1" unique="false" columns="person"/>
+      <index name="person_idx2" unique="false" columns="upper((first_name)::text)"/>
+      <index name="person_idx3" unique="false" columns="upper((last_name)::text)"/>
+      <index name="person_idx4" unique="false" columns="identity_code"/>
+      <index name="person_idx5" unique="false" columns="birth_date"/>
+      <index name="person_idx6" unique="false" columns="created"/>
+      <index name="person_idx7" unique="false" columns="created_by"/>
+    </table>
+    <table name="person_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="struct_unit" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="struct_unit" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnc3RydWN0X3VuaXRfaWQnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
+      <column name="enterprise_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="upper_unit_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="level" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="name" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="struct_unit_pk" columns="struct_unit"/>
+      <index name="struct_unit_idx1" unique="false" columns="struct_unit"/>
+      <index name="struct_unit_idx2" unique="false" columns="enterprise_fk"/>
+      <index name="struct_unit_idx3" unique="false" columns="upper_unit_fk"/>
+      <index name="struct_unit_idx4" unique="false" columns="upper((name)::text)"/>
+    </table>
+    <table name="struct_unit_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="subject_attribute" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="subject_attribute" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnc3ViamVjdF9hdHRyaWJ1dGVfaWQnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
+      <column name="subject_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="subject_attribute_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="subject_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="orderby" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="value_text" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="value_number" sqlType="numeric" precision="131089" scale="0" nullable="true" jdbcType="2"/>
+      <column name="value_date" sqlType="date" precision="13" scale="0" nullable="true" jdbcType="91"/>
+      <column name="data_type" sqlType="numeric" precision="1" scale="0" nullable="true" jdbcType="2"/>
+      <primary-key name="subject_attribute_pk" columns="subject_attribute"/>
+      <index name="subject_attribute_idx1" unique="false" columns="subject_attribute"/>
+      <index name="subject_attribute_idx2" unique="false" columns="subject_fk"/>
+      <index name="subject_attribute_idx5" unique="false" columns="subject_attribute_type_fk"/>
+      <index name="subject_attribute_idx6" unique="false" columns="subject_type_fk"/>
+      <index name="subject_attribute_idx7" unique="false" columns="upper(value_text)"/>
+      <index name="subject_attribute_idx8" unique="false" columns="value_number"/>
+      <index name="subject_attribute_idx9" unique="false" columns="value_date"/>
+    </table>
+    <table name="subject_attribute_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="subject_attribute_type" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="subject_attribute_type" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnc3ViamVjdF9hdHRyaWJ1dGVfdHlwZV9pZCc6OnJlZ2NsYXNzKQ==" autoIncrement="true"/>
+      <column name="subject_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="type_name" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="data_type" sqlType="numeric" precision="1" scale="0" nullable="true" jdbcType="2"/>
+      <column name="orderby" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="required" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="multiple_attributes" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="created_by_default" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="subject_attribute_type_pk" columns="subject_attribute_type"/>
+      <index name="subject_attribute_type_idx1" unique="false" columns="subject_attribute_type"/>
+      <index name="subject_attribute_type_idx2" unique="false" columns="subject_type_fk"/>
+      <index name="subject_attribute_type_idx3" unique="false" columns="upper((type_name)::text)"/>
+    </table>
+    <table name="subject_attribute_type_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="subject_type" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="subject_type" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2"/>
+      <column name="type_name" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="subject_type_pk" columns="subject_type"/>
+    </table>
+    <table name="user_account" schema="public" catalog="t124003_dokumendid" type="TABLE">
+      <column name="user_account" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgndXNlcl9hY2NvdW50X2lkJzo6cmVnY2xhc3Mp" autoIncrement="true"/>
+      <column name="subject_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="subject_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="username" sqlType="varchar" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="passw" sqlType="varchar" precision="300" scale="0" nullable="true" jdbcType="12"/>
+      <column name="status" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="valid_from" sqlType="date" precision="13" scale="0" nullable="true" jdbcType="91"/>
+      <column name="valid_to" sqlType="date" precision="13" scale="0" nullable="true" jdbcType="91"/>
+      <column name="created_by" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="created" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="password_never_expires" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="user_account_pk" columns="user_account"/>
+      <index name="user_account_idx1" unique="false" columns="user_account"/>
+      <index name="user_account_idx2" unique="false" columns="username,passw,status"/>
+      <index name="user_account_idx3" unique="false" columns="subject_type_fk"/>
+      <index name="user_account_idx4" unique="false" columns="subject_fk"/>
+    </table>
+    <table name="user_account_id" schema="public" catalog="t124003_dokumendid" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+  </data-source>
+</component>

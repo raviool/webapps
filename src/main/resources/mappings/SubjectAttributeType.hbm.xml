@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="t124003.backend.model.SubjectAttributeType" table="subject_attribute_type" schema="public"
+           catalog="t124003_dokumendid">
+        <id name="subjectAttributeType">
+            <column name="subject_attribute_type" sql-type="numeric" precision="10" not-null="true"/>
+        </id>
+        <property name="subjectTypeFk">
+            <column name="subject_type_fk" sql-type="numeric" precision="10"/>
+        </property>
+        <property name="typeName">
+            <column name="type_name" sql-type="varchar" length="200"/>
+        </property>
+        <property name="dataType">
+            <column name="data_type" sql-type="numeric" precision="1"/>
+        </property>
+        <property name="orderby">
+            <column name="orderby" sql-type="numeric" precision="10"/>
+        </property>
+        <property name="required">
+            <column name="required" sql-type="varchar" length="1"/>
+        </property>
+        <property name="multipleAttributes">
+            <column name="multiple_attributes" sql-type="varchar" length="1"/>
+        </property>
+        <property name="createdByDefault">
+            <column name="created_by_default" sql-type="varchar" length="1"/>
+        </property>
+    </class>
+</hibernate-mapping>
