@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="t124003.backend.model.Address" table="address" schema="public" catalog="t124003_dokumendid">
+    <class name="t124003.backend.model.subject.Address" table="address" schema="public" catalog="t124003_dokumendid">
         <id name="address">
             <column name="address" sql-type="numeric" precision="10" not-null="true"/>
         </id>

@@ -8,7 +8,7 @@ import java.sql.Statement;
 import org.springframework.stereotype.Service;
 
 import t124003.backend.db.DBConnection;
-import t124003.backend.model.DocType;
+import t124003.backend.model.document.DocType;
 
 @Service("docTypeService")
 public class DocStatusTypeService {

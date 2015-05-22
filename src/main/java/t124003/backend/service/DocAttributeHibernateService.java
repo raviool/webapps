@@ -2,15 +2,13 @@ package t124003.backend.service;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.metamodel.relational.Datatype;
 import org.springframework.stereotype.Service;
-import t124003.backend.model.AtrTypeSelectionValue;
-import t124003.backend.model.DataType;
-import t124003.backend.model.DocAttribute;
-import t124003.backend.model.DocAttributeType;
 
-import javax.smartcardio.ATR;
-import java.math.BigInteger;
+import t124003.backend.model.document.AtrTypeSelectionValue;
+import t124003.backend.model.document.DataType;
+import t124003.backend.model.document.DocAttribute;
+import t124003.backend.model.document.DocAttributeType;
+
 import java.util.List;
 
 /**
@@ -21,12 +19,13 @@ public class DocAttributeHibernateService {
 
     public DocAttributeHibernateService() {};
 
-    public List<DocAttribute> findDocumentAttributes(int id) {
+    @SuppressWarnings("unchecked")
+	public List<DocAttribute> findDocumentAttributes(int id) {
         List <DocAttribute> docAttributes = null;
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         try {
             session.beginTransaction();
-            Query q = session.createQuery("FROM DocAttribute  as da WHERE da.documentFk=:id ORDER BY orderby");
+            Query q = session.createQuery("FROM DocAttribute as da WHERE da.documentFk=:id ORDER BY orderby");
             q.setInteger("id", id);
             docAttributes = q.list();
         } finally {
@@ -65,7 +64,8 @@ public class DocAttributeHibernateService {
         return dataType;
     }
 
-    public List<AtrTypeSelectionValue> findSelectionAttributeValues(DocAttribute attribute) {
+    @SuppressWarnings("unchecked")
+	public List<AtrTypeSelectionValue> findSelectionAttributeValues(DocAttribute attribute) {
         DataType type = findAttributeDataType(attribute);
         int atrType = attribute.getDocAttributeTypeFk();
         List<AtrTypeSelectionValue> attributeSelections = null;

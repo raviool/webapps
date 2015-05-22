@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="t124003.backend.model.DocumentDocType" table="document_doc_type" schema="public"
+    <class name="t124003.backend.model.document.DocumentDocType" table="document_doc_type" schema="public"
            catalog="t124003_dokumendid">
         <id name="documentDocType">
             <column name="document_doc_type" sql-type="numeric" precision="10" not-null="true"/>

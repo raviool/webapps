@@ -3,12 +3,9 @@ package t124003.backend.service;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.stereotype.Service;
-import t124003.backend.model.DocAttribute;
-import t124003.backend.model.DocAttributeType;
-import t124003.backend.model.DocType;
-import t124003.backend.model.Document;
 
-import java.util.List;
+import t124003.backend.model.document.DocType;
+import t124003.backend.model.document.Document;
 
 /**
  * Created by Raviool on 21.05.2015.

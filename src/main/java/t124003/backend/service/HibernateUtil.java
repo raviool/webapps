@@ -6,6 +6,7 @@ import org.hibernate.cfg.Configuration;
 /**
  * Created by Raviool on 6.05.2015.
  */
+@SuppressWarnings("deprecation")
 public class HibernateUtil {
     private static final SessionFactory sessionFactory;
     static {
