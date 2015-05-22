@@ -1,5 +1,6 @@
 package t124003.frontend.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +26,8 @@ import java.util.List;
 
 @Controller
 public class DefaultController {
+	static Logger l = Logger.getLogger("t124003.frontend.controller/DefaultController");
+	
 	@Autowired
 	private DocStatusTypeService docStatusTypeService;
 	
@@ -84,7 +87,7 @@ public class DefaultController {
 				da.setSelectionValues(docAttributeService.findSelectionAttributeValues(da));
 			}
 		} catch (NumberFormatException e) {
-			// Log.
+			l.error((new StringBuilder()).append("DefaultController.getTangerine(): ").append(e.getMessage()));
 			return "error";
 		}
 		if (document != null) {
@@ -94,7 +97,7 @@ public class DefaultController {
 			model.addAttribute("docType", docType);
 			return "documentForm";
 		} else {
-			// Log.
+			l.error((new StringBuilder()).append("DefaultController.getTangerine(): ").append("Dokumenti ei eksisteeri."));
 			return "error";
 		}
 	}
