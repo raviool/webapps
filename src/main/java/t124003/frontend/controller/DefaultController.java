@@ -87,7 +87,7 @@ public class DefaultController {
 				da.setSelectionValues(docAttributeService.findSelectionAttributeValues(da));
 			}
 		} catch (NumberFormatException e) {
-			l.error((new StringBuilder()).append("DefaultController.getTangerine(): ").append(e.getMessage()));
+			l.error((new StringBuilder()).append("DefaultController.getDocument(): ").append(e.getMessage()));
 			return "error";
 		}
 		if (document != null) {
@@ -97,7 +97,7 @@ public class DefaultController {
 			model.addAttribute("docType", docType);
 			return "documentForm";
 		} else {
-			l.error((new StringBuilder()).append("DefaultController.getTangerine(): ").append("Dokumenti ei eksisteeri."));
+			l.error((new StringBuilder()).append("DefaultController.getDocument(): ").append("Dokumenti ei eksisteeri."));
 			return "error";
 		}
 	}
