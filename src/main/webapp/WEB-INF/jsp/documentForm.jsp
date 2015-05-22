@@ -8,7 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
 <body bgcolor="white">
-	<a href='${pageContext.request.contextPath}'>servlet</a> |
+	<a href='${pageContext.request.contextPath}'>catalog</a> |
+	<a href='${pageContext.request.contextPath}/search'>search</a> |
 	<a href='http://imbi.ld.ttu.ee/tomcat_webapp_logs/document/log.txt'>log.txt</a>
 	<br>
 	<form:form modelAttribute="document">
