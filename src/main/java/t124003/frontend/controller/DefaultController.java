@@ -9,18 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import t124003.backend.model.document.DocAttribute;
-import t124003.backend.model.document.DocStatusType;
-import t124003.backend.model.document.DocSubjectRelationType;
-import t124003.backend.model.document.DocType;
-import t124003.backend.model.document.Document;
+import t124003.backend.model.document.*;
 import t124003.backend.model.subject.Person;
-import t124003.backend.service.DocAttributeHibernateService;
-import t124003.backend.service.DocStatusTypeHibernateService;
-import t124003.backend.service.DocStatusTypeService;
-import t124003.backend.service.DocSubjectRelationTypeHibernateService;
-import t124003.backend.service.DocTypeHibernateService;
-import t124003.backend.service.DocumentHibernateService;
+import t124003.backend.service.*;
 
 import java.util.List;
 
@@ -47,8 +38,17 @@ public class DefaultController {
 	@Autowired
 	private DocTypeHibernateService docTypeService;
 
+	@Autowired
+	private DocCatalogHibernateService docCatalogService;
+
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String getDocuments(Model model) {
+		List<DocCatalog> docRootCatalogs;
+		List<DocCatalog> docSecondLevelCatalogs;
+		docRootCatalogs = docCatalogService.findNthLevelCatalogs(1);
+		docSecondLevelCatalogs = docCatalogService.findNthLevelCatalogs(2);
+		model.addAttribute("docRootCatalogs", docRootCatalogs);
+		model.addAttribute("docSecondLevelCatalogs", docSecondLevelCatalogs);
 		return "mainForm";
 	}
 	
