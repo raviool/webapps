@@ -73,7 +73,7 @@ public class DocAttributeHibernateService {
             Session session = HibernateUtil.getSessionFactory().getCurrentSession();
             try {
                 session.beginTransaction();
-                Query q = session.createQuery("FROM AtrTypeSelectionValue  as atsv WHERE atsv.docAttributeTypeFk=:atrType ORDER BY orderby");
+                Query q = session.createQuery("FROM AtrTypeSelectionValue as atsv WHERE atsv.docAttributeTypeFk=:atrType ORDER BY orderby");
                 q.setInteger("atrType", atrType);
                 attributeSelections = q.list();
             } finally {

@@ -26,11 +26,11 @@
 	<li><a href="/catalog">DOKUMENDID</a></li>
 	<ul>
 		<c:forEach var="catalog" items="${docRootCatalogs}">
-			<li><a href="/catalog?id=${catalog.docCatalog}">${catalog.name}</a></li>
+			<li><a href="${pageContext.request.contextPath}/catalog?id=${catalog.docCatalog}">${catalog.name}</a></li>
 			<ul>
 				<c:forEach var="childCatalog" items="${docSecondLevelCatalogs}">
 					<c:if test="${childCatalog.upperCatalogFk == catalog.docCatalog}">
-						<li><a href="/catalog?id=${childCatalog.docCatalog}">${childCatalog.name}</a></li>
+						<li><a href="${pageContext.request.contextPath}/catalog?id=${childCatalog.docCatalog}">${childCatalog.name}</a></li>
 					</c:if>
 				</c:forEach>
 			</ul>
