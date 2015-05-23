@@ -53,11 +53,8 @@ public class CatalogServiceController {
 			// Log.
 		}
 		
-		String json;
-		for (int i=0; i<documents.size(); i++) {
-			 json = gson.toJson(documents.get(i));
-			 pw.print(json);
-		}
+		String json = gson.toJson(documents);
+		pw.print(json);
 	}
 	
 	public String goPage(Model m) throws SQLException {
