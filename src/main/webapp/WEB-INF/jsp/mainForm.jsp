@@ -18,10 +18,9 @@
 	<script src="${pageContext.request.contextPath}/static/js/document.js"></script>
 </head>
 <body bgcolor="white">
-<a href='${pageContext.request.contextPath}/'>Kataloog</a> |
-<a href='${pageContext.request.contextPath}/subjectSearch'>Subjekti otsing</a> |
-<a href='${pageContext.request.contextPath}/documentSearch'>Dokumendi otsing</a> |
-<a href='http://imbi.ld.ttu.ee/tomcat_webapp_logs/document/log.txt'>Log.txt</a>
+
+<jsp:include page="header.jsp" />
+
 <br>
 <ul>
 	<li><a href="/catalog">DOKUMENDID</a></li>

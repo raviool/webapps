@@ -470,6 +470,24 @@
       <column name="type_name" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="employee_role_type_pk" columns="employee_role_type"/>
     </table>
+    <table name="employeelogin" schema="public" catalog="t124003_dokumendid" type="VIEW">
+      <column name="employee" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="person_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="enterprise_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="struct_unit_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="active" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="user_account" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="subject_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="subject_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="username" sqlType="varchar" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="passw" sqlType="varchar" precision="300" scale="0" nullable="true" jdbcType="12"/>
+      <column name="status" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="valid_from" sqlType="date" precision="13" scale="0" nullable="true" jdbcType="91"/>
+      <column name="valid_to" sqlType="date" precision="13" scale="0" nullable="true" jdbcType="91"/>
+      <column name="created_by" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="created" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="password_never_expires" sqlType="varchar" precision="1" scale="0" nullable="true" jdbcType="12"/>
+    </table>
     <table name="ent_per_relation_type" schema="public" catalog="t124003_dokumendid" type="TABLE">
       <column name="ent_per_relation_type" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2"/>
       <column name="type_name" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
