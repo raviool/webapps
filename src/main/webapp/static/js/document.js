@@ -30,7 +30,7 @@ function initialize() {
 		req = new XMLHttpRequest();
 		mozillus = 1;
 	}
-} 
+}
 
 function process_documents_request() {
 	var x;
@@ -57,24 +57,29 @@ function show_documents(documents) {
 	} else {
 		path = document.getElementById("path_" + catalog).value
 	}
-	table.innerHTML = "";
-	var tableContent = "<tr bgcolor='#ffffff'><td bgcolor='#cccccc' style='padding:2px;' nowrap>Kataloog:</td><td style='padding:2px;' colspan=3>" + path + "</td></tr><tr bgcolor='#ffffff'><td bgcolor='#cccccc' style='padding:2px;'' nowrap>Dok.nr.</td><td bgcolor='#cccccc' style='padding:2px;' nowrap>Dokumendi nimi</td><td bgcolor='#cccccc' style='padding:2px;'' nowrap></td><td bgcolor='#cccccc' style='padding:2px;' nowrap></td></tr>"
-	for (var i=0; i<documents.length; i++) {
-		tableContent += "<tr bgcolor='#ffffff'><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'>" + documents[i].document + "</td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><a href='s?id=" + documents[i].document + "'>" + documents[i].name + "</a></td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><input type='button' value='Kustuta'></td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><input type='checkbox'></td></tr>";
-		/*var row = table.insertRow(-1);
+	if (documents.length > 0) {
+		table.innerHTML = "";
+		var tableContent = "<tr bgcolor='#ffffff'><td bgcolor='#cccccc' style='padding:2px;' nowrap>Kataloog:</td><td style='padding:2px;' colspan=3>" + path + "</td></tr><tr bgcolor='#ffffff'><td bgcolor='#cccccc' style='padding:2px;'' nowrap>Dok.nr.</td><td bgcolor='#cccccc' style='padding:2px;' nowrap>Dokumendi nimi</td><td bgcolor='#cccccc' style='padding:2px;'' nowrap></td><td bgcolor='#cccccc' style='padding:2px;' nowrap></td></tr>"
+		for (var i=0; i<documents.length; i++) {
+			tableContent += "<tr bgcolor='#ffffff'><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'>" + documents[i].document + "</td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><a href='s?id=" + documents[i].document + "'>" + documents[i].name + "</a></td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><input type='button' value='Kustuta'></td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><input type='checkbox'></td></tr>";
+			/*var row = table.insertRow(-1);
 
-		var id = row.insertCell(0);
-		var name = row.insertCell(1);
-		var button = row.insertCell(2);
-		var checkbox = row.insertCell(3);
+			 var id = row.insertCell(0);
+			 var name = row.insertCell(1);
+			 var button = row.insertCell(2);
+			 var checkbox = row.insertCell(3);
 
-		id.innerHTML = documents[i].document;
-		name.innerHTML = "<a href='${pageContext.request.contextPath}/s?id=" + documents[i].document + "'>" + documents[i].name + "</a>";
-		button.innerHTML = "<input type='button' value='Kustuta'>";
-		name.innerHTML = "<input type='checkbox'>";*/
+			 id.innerHTML = documents[i].document;
+			 name.innerHTML = "<a href='${pageContext.request.contextPath}/s?id=" + documents[i].document + "'>" + documents[i].name + "</a>";
+			 button.innerHTML = "<input type='button' value='Kustuta'>";
+			 name.innerHTML = "<input type='checkbox'>";*/
+		}
+		table.innerHTML = tableContent;
+		show_documents_list();
+	} else {
+		table.innerHTML = "<div style='background-color: #ffffff'>Dokumente ei leitud</div>";
+		show_documents_list();
 	}
-	table.innerHTML = tableContent;
-	show_documents_list();
 }
 
 function show_documents_list() {
