@@ -14,11 +14,16 @@
         <intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
     </http>
 
-    <authentication-manager>
+    <!--<authentication-manager>
         <authentication-provider>
             <jdbc-user-service data-source-ref="dataSource"
                                users-by-username-query="select username, passw, TRUE as enabled from employeelogin where username = ?"
                                authorities-by-username-query="select username, 'ROLE_USER' as authority from employeelogin where username = ?"/>
+            <password-encoder hash="md5"/>
+        </authentication-provider>
+    </authentication-manager>-->
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider user-service-ref="userService">
             <password-encoder hash="md5"/>
         </authentication-provider>
     </authentication-manager>

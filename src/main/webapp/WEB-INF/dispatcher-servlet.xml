@@ -31,4 +31,6 @@
 		<property name="password" value="87uFxO04" />
 	</bean>
 
+	<bean id="userService" class="t124003.backend.service.sessionmanagement.UserService"></bean>
+
 </beans>
