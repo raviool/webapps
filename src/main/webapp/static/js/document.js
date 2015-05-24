@@ -77,7 +77,7 @@ function show_documents(documents) {
 		table.innerHTML = tableContent;
 		show_documents_list();
 	} else {
-		table.innerHTML = "<div style='background-color: #ffffff'>Dokumente ei leitud</div>";
+		table.innerHTML = "<tr bgcolor='#ffffff'><td bgcolor='#cccccc' style='padding:2px;' nowrap>Kataloog:</td><td style='padding:2px;' colspan=3>" + path + "</td></tr><tr bgcolor='#ffffff'><td colspan='4' bgcolor='#ffffff'>Dokumente ei leitud</td></tr>";
 		show_documents_list();
 	}
 }
