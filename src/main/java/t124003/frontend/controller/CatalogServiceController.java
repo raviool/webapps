@@ -28,9 +28,15 @@ public class CatalogServiceController {
 	@Autowired
 	private DocCatalogHibernateService docCatalogService;
 
-	@RequestMapping(value="/catalog", method=RequestMethod.GET, params = {"id"})
-	public void doGet(@RequestParam(value="id") int catalog_id, HttpServletResponse res) {
-		List<Document> documents = findCatalogById(catalog_id);
+	@RequestMapping(value="/catalog", method=RequestMethod.GET)
+	public void doGet(@RequestParam(value="id", required = true) int catalog_id, HttpServletResponse res) {
+		System.out.println(catalog_id);
+		List<Document> documents;
+		if (catalog_id <= 0) {
+			documents = findAllDocuments();
+		} else {
+			documents = findCatalogById(catalog_id);
+		}
 		tangerineToJson(documents, res);
 	}
 
@@ -44,6 +50,19 @@ public class CatalogServiceController {
 			// Log.
 		}
 		
+		return documents;
+	}
+
+	private List<Document> findAllDocuments() {
+		DocCatalogHibernateService docCatalogService = new DocCatalogHibernateService();
+		List<Document> documents = null;
+
+		try {
+			documents = docCatalogService.findAllDocuments();
+		} catch (NumberFormatException e) {
+			// Log.
+		}
+
 		return documents;
 	}
 	

@@ -31,6 +31,9 @@ public class DocAttributeHibernateService {
         } finally {
             session.close();
         }
+        for (DocAttribute da: docAttributes) {
+            System.out.println(da.getTypeName());
+        }
         return docAttributes;
     }
 

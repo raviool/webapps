@@ -72,4 +72,28 @@ public class DocCatalogHibernateService {
 		
         return documents;
     }
+
+    // Non-hibernate method in an Hibernate service.
+    public List<Document> findAllDocuments() {
+        Statement s = null;
+        ResultSet rs = null;
+        Document document;
+        List<Document> documents = new ArrayList<Document>();
+        String query = "SELECT document, name FROM document INNER JOIN document_doc_catalog ON document.document=document_doc_catalog.document_fk;";
+
+        try {
+            s = DBConnection.getConnection().createStatement();
+            rs = s.executeQuery(query);
+            while (rs.next()) {
+                document = new Document();
+                document.setDocument(rs.getInt("document"));
+                document.setName(rs.getString("name"));
+                documents.add(document);
+            }
+        } catch (SQLException e) {
+            // Log.
+        }
+
+        return documents;
+    }
 }

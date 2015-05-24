@@ -23,7 +23,7 @@
 
 <br>
 <ul>
-	<li><a href="/catalog">DOKUMENDID</a></li>
+	<li><a href="javascript:get_documents(0)">DOKUMENDID</a></li>
 	<ul>
 		<c:forEach var="catalog" items="${docRootCatalogs}">
 			<li><a href="javascript:get_documents(${catalog.docCatalog})">${catalog.name}</a></li>
