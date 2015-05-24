@@ -23,14 +23,16 @@
 
 <br>
 <ul>
-	<li><a href="javascript:get_documents(0)">DOKUMENDID</a></li>
+	<li><a style="cursor: pointer" onclick="get_documents(0, this)">DOKUMENDID</a></li>
 	<ul>
 		<c:forEach var="catalog" items="${docRootCatalogs}">
-			<li><a href="javascript:get_documents(${catalog.docCatalog})">${catalog.name}</a> <input type="hidden" id="path_${catalog.docCatalog}" value="/${catalog.name}"/> </li>
+			<li><a style="cursor: pointer" onclick="get_documents(${catalog.docCatalog}, this)">${catalog.name}</a></li>
+			<input type="hidden" id="path_${catalog.docCatalog}" value="/${catalog.name}"/>
 			<ul>
 				<c:forEach var="childCatalog" items="${docSecondLevelCatalogs}">
 					<c:if test="${childCatalog.upperCatalogFk == catalog.docCatalog}">
-						<li><a href="javascript:get_documents(${childCatalog.docCatalog})">${childCatalog.name}</a> <input type="hidden" id="path_${childCatalog.docCatalog}" value="/${catalog.name}/${childCatalog.name}"/> </li>
+						<li><a style="cursor: pointer" onclick="get_documents(${childCatalog.docCatalog}, this)">${childCatalog.name}</a></li>
+						<input type="hidden" id="path_${childCatalog.docCatalog}" value="/${catalog.name}/${childCatalog.name}"/>
 					</c:if>
 				</c:forEach>
 			</ul>

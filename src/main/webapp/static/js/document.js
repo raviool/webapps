@@ -2,11 +2,18 @@ var req;
 var mozillus = 0;
 var server = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2)) + "/";
 var catalog;
+var selected_catalog;
 
-function get_documents(catalog_id) {
+function get_documents(catalog_id, caller) {
 	initialize();
 	var url = server + "catalog?id=" + catalog_id;
 	catalog = catalog_id;
+	if (selected_catalog) {
+		selected_catalog.style.fontWeight = "normal";
+	}
+	selected_catalog = caller;
+	selected_catalog.style.fontWeight = "bold";
+
 	document.getElementById("ajax_response").innerHTML=url;
 	if(req != null) {
 		req.onreadystatechange = process_documents_request;
