@@ -1,10 +1,12 @@
 var req;
 var mozillus = 0;
 var server = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2)) + "/";
+var catalog;
 
 function get_documents(catalog_id) {
 	initialize();
 	var url = server + "catalog?id=" + catalog_id;
+	catalog = catalog_id;
 	document.getElementById("ajax_response").innerHTML=url;
 	if(req != null) {
 		req.onreadystatechange = process_documents_request;
@@ -49,8 +51,14 @@ function process_documents_request() {
 
 function show_documents(documents) {
 	var table = document.getElementById("documentsTable");
+	var path;
+	if (!document.getElementById("path_" + catalog)) {
+		path = "/";
+	} else {
+		path = document.getElementById("path_" + catalog).value
+	}
 	table.innerHTML = "";
-	var tableContent = "<tr bgcolor='#ffffff'><td bgcolor='#cccccc' style='padding:2px;' nowrap>Kataloog:</td><td style='padding:2px;' colspan=3>[Kataloogi path siia]</td></tr><tr bgcolor='#ffffff'><td bgcolor='#cccccc' style='padding:2px;'' nowrap>Dok.nr.</td><td bgcolor='#cccccc' style='padding:2px;' nowrap>Dokumendi nimi</td><td bgcolor='#cccccc' style='padding:2px;'' nowrap></td><td bgcolor='#cccccc' style='padding:2px;' nowrap></td></tr>"
+	var tableContent = "<tr bgcolor='#ffffff'><td bgcolor='#cccccc' style='padding:2px;' nowrap>Kataloog:</td><td style='padding:2px;' colspan=3>" + path + "</td></tr><tr bgcolor='#ffffff'><td bgcolor='#cccccc' style='padding:2px;'' nowrap>Dok.nr.</td><td bgcolor='#cccccc' style='padding:2px;' nowrap>Dokumendi nimi</td><td bgcolor='#cccccc' style='padding:2px;'' nowrap></td><td bgcolor='#cccccc' style='padding:2px;' nowrap></td></tr>"
 	for (var i=0; i<documents.length; i++) {
 		tableContent += "<tr bgcolor='#ffffff'><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'>" + documents[i].document + "</td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><a href='s?id=" + documents[i].document + "'>" + documents[i].name + "</a></td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><input type='button' value='Kustuta'></td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><input type='checkbox'></td></tr>";
 		/*var row = table.insertRow(-1);

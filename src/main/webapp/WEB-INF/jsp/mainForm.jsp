@@ -26,11 +26,11 @@
 	<li><a href="javascript:get_documents(0)">DOKUMENDID</a></li>
 	<ul>
 		<c:forEach var="catalog" items="${docRootCatalogs}">
-			<li><a href="javascript:get_documents(${catalog.docCatalog})">${catalog.name}</a></li>
+			<li><a href="javascript:get_documents(${catalog.docCatalog})">${catalog.name}</a> <input type="hidden" id="path_${catalog.docCatalog}" value="/${catalog.name}"/> </li>
 			<ul>
 				<c:forEach var="childCatalog" items="${docSecondLevelCatalogs}">
 					<c:if test="${childCatalog.upperCatalogFk == catalog.docCatalog}">
-						<li><a href="javascript:get_documents(${childCatalog.docCatalog})">${childCatalog.name}</a></li>
+						<li><a href="javascript:get_documents(${childCatalog.docCatalog})">${childCatalog.name}</a> <input type="hidden" id="path_${childCatalog.docCatalog}" value="/${catalog.name}/${childCatalog.name}"/> </li>
 					</c:if>
 				</c:forEach>
 			</ul>
