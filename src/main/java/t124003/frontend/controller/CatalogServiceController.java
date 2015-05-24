@@ -30,7 +30,6 @@ public class CatalogServiceController {
 
 	@RequestMapping(value="/catalog", method=RequestMethod.GET)
 	public void doGet(@RequestParam(value="id", required = true) int catalog_id, HttpServletResponse res) {
-		System.out.println(catalog_id);
 		List<Document> documents;
 		if (catalog_id <= 0) {
 			documents = findAllDocuments();
