@@ -19,8 +19,8 @@ public class PersonHibernateService {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         try {
             session.beginTransaction();
-            Query q = session.createQuery("FROM Person as p WHERE p.lastName=:name");
-            q.setString("name", name);
+            Query q = session.createQuery("FROM Person as p WHERE UPPER(p.lastName) LIKE UPPER(:name)");
+            q.setString("name", "%" + name + "%");
             persons = q.list();
         } finally {
             session.close();

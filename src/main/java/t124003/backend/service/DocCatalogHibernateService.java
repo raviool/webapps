@@ -8,6 +8,7 @@ import t124003.backend.db.DBConnection;
 import t124003.backend.model.document.DocCatalog;
 import t124003.backend.model.document.Document;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,7 +22,7 @@ import java.util.List;
 public class DocCatalogHibernateService {
 
     @SuppressWarnings("unchecked")
-	public List<DocCatalog> findAllCatalogs() {
+    public List<DocCatalog> findAllCatalogs() {
         List<DocCatalog> docCatalogs = null;
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         try {
@@ -35,7 +36,7 @@ public class DocCatalogHibernateService {
     }
 
     @SuppressWarnings("unchecked")
-	public List<DocCatalog> findNthLevelCatalogs(int level) {
+    public List<DocCatalog> findNthLevelCatalogs(int level) {
         List<DocCatalog> docCatalogs = null;
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         try {
@@ -48,44 +49,46 @@ public class DocCatalogHibernateService {
         }
         return docCatalogs;
     }
-    
+
     // Non-hibernate method in an Hibernate service.
-	public List<Document> findDocumentsByCatalogId(int catalog_id) throws SQLException {
+    public List<Document> findDocumentsByCatalogId(int catalog_id) throws SQLException {
+        Connection c = null;
         Statement s = null;
-		ResultSet rs = null;
-		Document document;
-		List<Document> documents = new ArrayList<Document>();
-		String query = "SELECT document, name FROM document INNER JOIN document_doc_catalog ON document.document=document_doc_catalog.document_fk WHERE doc_catalog_fk=" + catalog_id + ";";
-		
-		try {
-			s = DBConnection.getConnection().createStatement();
-			rs = s.executeQuery(query);
-			while (rs.next()) {
-				document = new Document();
-				document.setDocument(rs.getInt("document"));
-				document.setName(rs.getString("name"));
-				documents.add(document);
-			}
-		} catch (SQLException e) {
-			// Log.
-		} finally {
-            rs.close();
-            s.close();
-            System.out.println(s.isClosed());
+        ResultSet rs = null;
+        Document document;
+        List<Document> documents = new ArrayList<Document>();
+        String query = "SELECT document, name FROM document INNER JOIN document_doc_catalog ON document.document=document_doc_catalog.document_fk WHERE doc_catalog_fk=" + catalog_id + ";";
+
+        try {
+            c = DBConnection.getConnection();
+            s = c.createStatement();
+            rs = s.executeQuery(query);
+            while (rs.next()) {
+                document = new Document();
+                document.setDocument(rs.getInt("document"));
+                document.setName(rs.getString("name"));
+                documents.add(document);
+            }
+        } catch (SQLException e) {
+            // Log.
+        } finally {
+            DBConnection.close(c);
         }
-		
+
         return documents;
     }
 
     // Non-hibernate method in an Hibernate service.
     public List<Document> findAllDocuments() throws SQLException {
+        Connection c = null;
         Statement s = null;
         ResultSet rs = null;
         Document document;
         List<Document> documents = new ArrayList<Document>();
         String query = "SELECT document, name FROM document INNER JOIN document_doc_catalog ON document.document=document_doc_catalog.document_fk;";
         try {
-            s = DBConnection.getConnection().createStatement();
+            c = DBConnection.getConnection();
+            s = c.createStatement();
             rs = s.executeQuery(query);
             while (rs.next()) {
                 document = new Document();
@@ -97,9 +100,7 @@ public class DocCatalogHibernateService {
         } catch (SQLException e) {
             // Log.
         } finally {
-            rs.close();
-            s.close();
-            System.out.println(s.isClosed());
+            DBConnection.close(c);
         }
 
         return documents;

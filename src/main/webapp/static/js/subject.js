@@ -34,7 +34,7 @@ function get_persons(name, caller) {
 	if(req != null) {
 		console.log("get_persons: Request not null, going to process.");
 		req.onreadystatechange = process_persons_request;
-		req.open("GET", url, true);
+		req.open("GET", url, false);
 		req.send(null);
 	}
 }
@@ -54,7 +54,7 @@ function get_enterprises(name, caller) {
 	if(req != null) {
 		console.log("get_enterprises: Request not null, going to process.");
 		req.onreadystatechange = process_enterprises_request;
-		req.open("GET", url, true);
+		req.open("GET", url, false);
 		req.send(null);
 	}
 }

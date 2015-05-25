@@ -25,13 +25,15 @@ public class DocStatusTypeService {
     }
 	
 	public DocType findById(int id) throws SQLException {
+		Connection c = null;
 		Statement s = null;
 		ResultSet rs = null;
 		DocType docType = null;
 		String query = "select type_name from doc_status_type where doc_status_type=(select doc_status_type_fk from document where document=" + id + ");";
 		
 		try {
-			s = DBConnection.getConnection().createStatement();
+			c = DBConnection.getConnection();
+			s = c.createStatement();
 			rs = s.executeQuery(query);
 			while (rs.next()) {
 				docType = new DocType();
@@ -40,10 +42,7 @@ public class DocStatusTypeService {
 		} catch (SQLException e) {
 			// Log.
 		} finally {
-			rs.close();
-			s.close();
-			System.out.println(s.isClosed());
-
+			DBConnection.close(c);
 		}
 		
         return docType;

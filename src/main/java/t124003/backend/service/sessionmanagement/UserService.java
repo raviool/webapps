@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import t124003.backend.db.DBConnection;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,12 +23,14 @@ public class UserService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         CustomUserDetails userDetails = new CustomUserDetails();
+        Connection c = null;
         Statement s = null;
         ResultSet rs = null;
         String usersByUsernameQuery = "select username, passw, TRUE as enabled from employeelogin where username = '" + username + "'";
         String authoritiesByUsernameQuery = "select username, 'ROLE_USER' as authority from employeelogin where username = ?";
         try {
-            s = DBConnection.getConnection().createStatement();
+            c = DBConnection.getConnection();
+            s = c.createStatement();
             rs = s.executeQuery(usersByUsernameQuery);
             while (rs.next()) {
                 userDetails.setUsername(rs.getString("username"));
@@ -39,6 +42,8 @@ public class UserService implements UserDetailsService {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            DBConnection.close(c);
         }
         System.out.println(userDetails.getUsername() + ":" + userDetails.getPassword());
         return userDetails;

@@ -18,8 +18,8 @@ public class EnterpriseHibernateService {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         try {
             session.beginTransaction();
-            Query q = session.createQuery("FROM Enterprise as e WHERE e.name=:name");
-            q.setString("name", name);
+            Query q = session.createQuery("FROM Enterprise as e WHERE UPPER(e.name) LIKE UPPER(:name)");
+            q.setString("name","%" + name + "%");
             enterprises = q.list();
         } finally {
             session.close();
