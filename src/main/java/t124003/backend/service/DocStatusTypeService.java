@@ -37,6 +37,7 @@ public class DocStatusTypeService {
 				docType = new DocType();
 				docType.setTypeName(rs.getString("type_name"));
 			}
+			s.close();
 		} catch (SQLException e) {
 			// Log.
 		}

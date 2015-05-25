@@ -66,6 +66,7 @@ public class DocCatalogHibernateService {
 				document.setName(rs.getString("name"));
 				documents.add(document);
 			}
+            s.close();
 		} catch (SQLException e) {
 			// Log.
 		}
@@ -90,6 +91,7 @@ public class DocCatalogHibernateService {
                 document.setName(rs.getString("name"));
                 documents.add(document);
             }
+            s.close();
         } catch (SQLException e) {
             // Log.
         }
