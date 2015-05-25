@@ -36,7 +36,7 @@ public class CatalogServiceController {
 		} else {
 			documents = findCatalogById(catalog_id);
 		}
-		tangerineToJson(documents, res);
+		catalogToJson(documents, res);
 	}
 
 	private List<Document> findCatalogById(int catalog_id) throws SQLException {
@@ -67,7 +67,7 @@ public class CatalogServiceController {
 		return documents;
 	}
 	
-	private void tangerineToJson (List<Document> documents, HttpServletResponse res) {
+	private void catalogToJson (List<Document> documents, HttpServletResponse res) {
 		Gson gson = new Gson();
 		PrintWriter pw = null;
 		
