@@ -8,11 +8,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import t124003.backend.model.document.DocAttribute;
+import t124003.backend.model.document.DocSubjectRelationType;
 import t124003.backend.model.document.DocType;
 import t124003.backend.model.document.Document;
+import t124003.backend.model.subject.Person;
 import t124003.backend.service.DocAttributeHibernateService;
 import t124003.backend.service.DocStatusTypeService;
+import t124003.backend.service.DocSubjectRelationTypeHibernateService;
 import t124003.backend.service.DocumentHibernateService;
 
 import java.sql.SQLException;
@@ -33,11 +37,16 @@ public class DocumentController {
 
     @Autowired
     private DocAttributeHibernateService docAttributeService;
+    
+    @Autowired
+    private DocSubjectRelationTypeHibernateService docSubjectRelationTypeService;
 
     @RequestMapping(value="/s", method= RequestMethod.GET, params = {"id"})
-    public String getDocument(@RequestParam(value="id") String document_id, @ModelAttribute DocType docStatusType, Model model) throws SQLException {
+    public String getDocument(@RequestParam(value="id") String document_id, @ModelAttribute DocType docStatusType, @ModelAttribute Person person, Model model) throws SQLException {
         Document document;
         DocType docType;
+        List<DocSubjectRelationType> docSubjectRelationTypes;
+        docSubjectRelationTypes = docSubjectRelationTypeService.findDocSubjectRelationTypes();
         List<DocAttribute> docAttributes;
         try {
             document = documentService.findById(Integer.parseInt(document_id));
@@ -56,6 +65,8 @@ public class DocumentController {
             model.addAttribute("docStatusType", docStatusType);
             model.addAttribute("docAttributes", docAttributes);
             model.addAttribute("docType", docType);
+            model.addAttribute("person", person);
+            model.addAttribute("docSubjectRelationTypes", docSubjectRelationTypes);
             return "documentForm";
         } else {
             l.error((new StringBuilder()).append("DefaultController.getDocument(): ").append("Dokumenti ei eksisteeri."));
