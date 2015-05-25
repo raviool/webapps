@@ -15,6 +15,7 @@
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath}/static/js/subject.js"></script>
 </head>
 <body bgcolor="white">
 <jsp:include page="header.jsp" />
@@ -83,7 +84,7 @@
 					</tr>
 					<tr bgcolor='#ffffff'>
 						<td bgcolor='#cccccc' style="padding:2px;" nowrap>Nimi:</td>
-						<td style="padding:2px;">&nbsp;<b><font color='#0000ff'><form:input path="lastName"/></font></b><form:errors path="lastName" /></td>
+						<td style="padding:2px;">&nbsp;<b><font color='#0000ff'><form:input path="lastName" id="lastName"/></font></b><form:errors path="lastName" /></td>
 					</tr>
 					<!--<tr bgcolor='#ffffff'>
 						<td bgcolor='#cccccc' style="padding:2px;" nowrap>Seose tüüp:</td>
@@ -99,7 +100,18 @@
 			</td>
 		</tr>
 	</table>
-	<input type="submit" value="Otsi">
+	<input type="button" value="Otsi" onClick="get_subjects(document.getElementById('lastName').value, this)">
 </form:form>
+<div ID="ajax_response" hidden="true"></div>
+<div ID="subjects_list" style="visibility: hidden;">
+	<table style="border:0;border-collapse:separate;border-spacing:0px;">
+		<tr>
+			<td style="padding:0px;">
+				<table id="subjectsTable" style="border:0;border-collapse:separate;border-spacing:1px;"></table>
+			</td>
+		</tr>
+	</table>
+	<input type="button" value="Sulge" onClick="hide_subjects_list()">
+</div>
 </body>
 </html>
