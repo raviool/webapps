@@ -85,7 +85,7 @@
 						<td bgcolor='#cccccc' style="padding:2px;" nowrap>Nimi:</td>
 						<td style="padding:2px;">&nbsp;<b><font color='#0000ff'><form:input path="lastName"/></font></b><form:errors path="lastName" /></td>
 					</tr>
-					<tr bgcolor='#ffffff'>
+					<!--<tr bgcolor='#ffffff'>
 						<td bgcolor='#cccccc' style="padding:2px;" nowrap>Seose tüüp:</td>
 						<td style="padding:2px;">
 							&nbsp;<select>
@@ -94,7 +94,7 @@
 							</c:forEach>
 						</select>
 						</td>
-					</tr>
+					</tr>-->
 				</table>
 			</td>
 		</tr>

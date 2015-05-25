@@ -38,15 +38,15 @@ public class DocumentController {
     @Autowired
     private DocAttributeHibernateService docAttributeService;
     
-    @Autowired
-    private DocSubjectRelationTypeHibernateService docSubjectRelationTypeService;
+    /*@Autowired
+    private DocSubjectRelationTypeHibernateService docSubjectRelationTypeService;*/
 
     @RequestMapping(value="/s", method= RequestMethod.GET, params = {"id"})
     public String getDocument(@RequestParam(value="id") String document_id, @ModelAttribute DocType docStatusType, @ModelAttribute Person person, Model model) throws SQLException {
         Document document;
         DocType docType;
-        List<DocSubjectRelationType> docSubjectRelationTypes;
-        docSubjectRelationTypes = docSubjectRelationTypeService.findDocSubjectRelationTypes();
+        //List<DocSubjectRelationType> docSubjectRelationTypes;
+        //docSubjectRelationTypes = docSubjectRelationTypeService.findDocSubjectRelationTypes();
         List<DocAttribute> docAttributes;
         try {
             document = documentService.findById(Integer.parseInt(document_id));
@@ -66,7 +66,7 @@ public class DocumentController {
             model.addAttribute("docAttributes", docAttributes);
             model.addAttribute("docType", docType);
             model.addAttribute("person", person);
-            model.addAttribute("docSubjectRelationTypes", docSubjectRelationTypes);
+            //model.addAttribute("docSubjectRelationTypes", docSubjectRelationTypes);
             return "documentForm";
         } else {
             l.error((new StringBuilder()).append("DefaultController.getDocument(): ").append("Dokumenti ei eksisteeri."));
