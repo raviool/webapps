@@ -24,7 +24,7 @@ public class DocStatusTypeService {
         }
     }
 	
-	public DocType findById(int id) {
+	public DocType findById(int id) throws SQLException {
 		Statement s = null;
 		ResultSet rs = null;
 		DocType docType = null;
@@ -37,9 +37,13 @@ public class DocStatusTypeService {
 				docType = new DocType();
 				docType.setTypeName(rs.getString("type_name"));
 			}
-			s.close();
 		} catch (SQLException e) {
 			// Log.
+		} finally {
+			rs.close();
+			s.close();
+			System.out.println(s.isClosed());
+
 		}
 		
         return docType;

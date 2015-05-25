@@ -29,7 +29,7 @@ public class CatalogServiceController {
 	private DocCatalogHibernateService docCatalogService;
 
 	@RequestMapping(value="/catalog", method=RequestMethod.GET)
-	public void doGet(@RequestParam(value="id", required = true) int catalog_id, HttpServletResponse res) {
+	public void doGet(@RequestParam(value="id", required = true) int catalog_id, HttpServletResponse res) throws SQLException {
 		List<Document> documents;
 		if (catalog_id <= 0) {
 			documents = findAllDocuments();
@@ -39,7 +39,7 @@ public class CatalogServiceController {
 		tangerineToJson(documents, res);
 	}
 
-	private List<Document> findCatalogById(int catalog_id) {
+	private List<Document> findCatalogById(int catalog_id) throws SQLException {
 		DocCatalogHibernateService docCatalogService = new DocCatalogHibernateService();
 		List<Document> documents = null;
 		
@@ -60,6 +60,8 @@ public class CatalogServiceController {
 			documents = docCatalogService.findAllDocuments();
 		} catch (NumberFormatException e) {
 			// Log.
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 
 		return documents;

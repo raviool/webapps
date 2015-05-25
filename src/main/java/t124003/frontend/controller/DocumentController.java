@@ -15,6 +15,7 @@ import t124003.backend.service.DocAttributeHibernateService;
 import t124003.backend.service.DocStatusTypeService;
 import t124003.backend.service.DocumentHibernateService;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -34,7 +35,7 @@ public class DocumentController {
     private DocAttributeHibernateService docAttributeService;
 
     @RequestMapping(value="/s", method= RequestMethod.GET, params = {"id"})
-    public String getDocument(@RequestParam(value="id") String document_id, @ModelAttribute DocType docStatusType, Model model) {
+    public String getDocument(@RequestParam(value="id") String document_id, @ModelAttribute DocType docStatusType, Model model) throws SQLException {
         Document document;
         DocType docType;
         List<DocAttribute> docAttributes;

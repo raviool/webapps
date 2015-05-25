@@ -50,7 +50,7 @@ public class DocCatalogHibernateService {
     }
     
     // Non-hibernate method in an Hibernate service.
-	public List<Document> findDocumentsByCatalogId(int catalog_id) {
+	public List<Document> findDocumentsByCatalogId(int catalog_id) throws SQLException {
         Statement s = null;
 		ResultSet rs = null;
 		Document document;
@@ -66,22 +66,24 @@ public class DocCatalogHibernateService {
 				document.setName(rs.getString("name"));
 				documents.add(document);
 			}
-            s.close();
 		} catch (SQLException e) {
 			// Log.
-		}
+		} finally {
+            rs.close();
+            s.close();
+            System.out.println(s.isClosed());
+        }
 		
         return documents;
     }
 
     // Non-hibernate method in an Hibernate service.
-    public List<Document> findAllDocuments() {
+    public List<Document> findAllDocuments() throws SQLException {
         Statement s = null;
         ResultSet rs = null;
         Document document;
         List<Document> documents = new ArrayList<Document>();
         String query = "SELECT document, name FROM document INNER JOIN document_doc_catalog ON document.document=document_doc_catalog.document_fk;";
-
         try {
             s = DBConnection.getConnection().createStatement();
             rs = s.executeQuery(query);
@@ -94,6 +96,10 @@ public class DocCatalogHibernateService {
             s.close();
         } catch (SQLException e) {
             // Log.
+        } finally {
+            rs.close();
+            s.close();
+            System.out.println(s.isClosed());
         }
 
         return documents;
