@@ -29,6 +29,10 @@ public class MainController {
 
 	@Autowired
 	private BufferService bufferService;
+	
+	public void init() {
+		l.error("MainController.init(): Mind loodi.");
+	}
 
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String getDocuments(Model model, Principal principal) {
