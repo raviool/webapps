@@ -105,4 +105,23 @@ public class DocCatalogHibernateService {
 
         return documents;
     }
+
+    public Integer findDocumentCatalog(int documentId) {
+        System.out.println("running...");
+        Integer catalog = null;
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        try {
+            session.beginTransaction();
+            System.out.println("beginning...");
+            Query q = session.createQuery("SELECT docCatalogFk FROM DocumentDocCatalog WHERE documentFk=:document");
+            System.out.println("query...");
+            q.setInteger("document", documentId);
+            System.out.println("going...");
+            catalog = (Integer) q.uniqueResult();
+            System.out.println("catalog:" + catalog);
+        } finally {
+            session.close();
+        }
+        return catalog;
+    }
 }
