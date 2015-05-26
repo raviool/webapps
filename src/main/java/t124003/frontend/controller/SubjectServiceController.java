@@ -32,7 +32,8 @@ public class SubjectServiceController {
 	@RequestMapping(value="/persons", method=RequestMethod.GET)
 	public void doGetPersons(@RequestParam(value="name", required = true) String name, HttpServletResponse res) throws SQLException {
 		List<Person> persons;
-		if (name == null) {
+		if (name == null || name.equals("")) {
+			System.out.println("finding all");
 			persons = findAllPersons();
 		} else {
 			persons = findPersonsByName(name);

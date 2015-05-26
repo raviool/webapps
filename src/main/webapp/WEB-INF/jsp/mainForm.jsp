@@ -44,7 +44,7 @@
 	<table style="border:0;border-collapse:separate;border-spacing:0px;">
 		<tr>
 			<td style="padding:0px;">
-				<table id="documentsTable" style="border:0;border-collapse:separate;border-spacing:1px;"></table>
+				<form method='POST' action='?addtobuffer'><table id="documentsTable" style="border:0;border-collapse:separate;border-spacing:1px;"></table></form>
 			</td>
 		</tr>
 	</table>

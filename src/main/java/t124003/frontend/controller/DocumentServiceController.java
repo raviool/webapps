@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +18,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.google.gson.Gson;
 
+import t124003.backend.model.document.DocStatusType;
+import t124003.backend.model.document.DocType;
 import t124003.backend.model.document.Document;
 import t124003.backend.service.*;
 
@@ -27,8 +30,14 @@ public class DocumentServiceController {
 
 	@Autowired
 	private DocumentSearchHibernateService documentSearchService;
+
+	@Autowired
+	private DocStatusTypeHibernateService docStatusTypeHibernateService;
+
+	@Autowired
+	private DocTypeHibernateService docTypeService;
 	
-    @RequestMapping(value="/documentSearch", method= RequestMethod.GET)
+    @RequestMapping(value="/documentSearch", method= RequestMethod.GET, params = {"id", "name", "description", "last_name", "doc_catalog_name", "doc_status", "doc_type"})
     public void doGetDocuments(@RequestParam(value="id", required = false) int id,
     						   @RequestParam(value="name", required = false) String name,
     						   @RequestParam(value="description", required = false) String description,
@@ -75,6 +84,18 @@ public class DocumentServiceController {
 		
 		catalogToJson(documents, res);
     }
+
+	@RequestMapping(value="/documentSearch", method= RequestMethod.GET)
+	public String getDocumentSearch(@ModelAttribute Document document, Model model) {
+		List<DocType> docTypes;
+		docTypes = docTypeService.findDocTypes();
+		List<DocStatusType> docStatusTypes;
+		docStatusTypes = docStatusTypeHibernateService.findDocStatusTypes();
+		model.addAttribute("document", document);
+		model.addAttribute("docTypes", docTypes);
+		model.addAttribute("docStatusTypes", docStatusTypes);
+		return "documentSearchForm";
+	}
 
 	private List<Document> findDocuments(String query) {
 		DocumentSearchHibernateService documentSearchService = new DocumentSearchHibernateService();

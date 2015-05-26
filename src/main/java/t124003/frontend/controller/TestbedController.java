@@ -41,7 +41,12 @@ public class TestbedController {
         System.out.println(catalog);
         updateDateService.updateCatalogEditDate(principal.getName(), catalog);
         */
+
+        /*
+        //Status history update
         statusUpdateService.updateDocumentStatusHistory(1, 1, principal.getName());
+        */
+
 
     }
 }

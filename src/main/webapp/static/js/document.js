@@ -68,7 +68,7 @@ function show_documents(documents) {
 		table.innerHTML = "";
 		var tableContent = "<tr bgcolor='#ffffff'><td bgcolor='#cccccc' style='padding:2px;' nowrap>Kataloog:</td><td style='padding:2px;' colspan=3>" + path + "</td></tr><tr bgcolor='#ffffff'><td bgcolor='#cccccc' style='padding:2px;'' nowrap>Dok.nr.</td><td bgcolor='#cccccc' style='padding:2px;' nowrap>Dokumendi nimi</td><td bgcolor='#cccccc' style='padding:2px;'' nowrap></td><td bgcolor='#cccccc' style='padding:2px;' nowrap></td></tr>"
 		for (var i=0; i<documents.length; i++) {
-			tableContent += "<tr bgcolor='#ffffff'><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'>" + documents[i].document + "</td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><a href='s?id=" + documents[i].document + "'>" + documents[i].name + "</a></td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><input type='button' value='Kustuta'></td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><input type='checkbox'></td></tr>";
+			tableContent += "<tr bgcolor='#ffffff'><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'>" + documents[i].document + "</td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><a href='s?id=" + documents[i].document + "'>" + documents[i].name + "</a></td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><input type='button' value='Kustuta'></td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><input name='buffer' type='checkbox' value=" + documents[i].document + "></td></tr>";
 			/*var row = table.insertRow(-1);
 
 			 var id = row.insertCell(0);
@@ -81,6 +81,7 @@ function show_documents(documents) {
 			 button.innerHTML = "<input type='button' value='Kustuta'>";
 			 name.innerHTML = "<input type='checkbox'>";*/
 		}
+		tableContent += "<input type='submit' name='submitbuffer' value='Puhvrisse'/>"
 		table.innerHTML = tableContent;
 		show_documents_list();
 	} else {

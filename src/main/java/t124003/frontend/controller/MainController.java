@@ -2,6 +2,8 @@ package t124003.frontend.controller;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -16,10 +18,13 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import t124003.backend.model.document.*;
 import t124003.backend.model.subject.Person;
 import t124003.backend.service.*;
+import t124003.backend.service.sessionmanagement.CustomUserDetails;
 
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class MainController {
@@ -38,5 +43,16 @@ public class MainController {
 		model.addAttribute("docRootCatalogs", docRootCatalogs);
 		model.addAttribute("docSecondLevelCatalogs", docSecondLevelCatalogs);
 		return "mainForm";
+	}
+
+	@RequestMapping(value="/", method = RequestMethod.POST)
+	public String addToBuffer(@RequestParam("buffer") String[] buffer, Principal principal, Model model) {
+		Set<Integer> bufferSet = new HashSet<Integer>();
+		for (String s: buffer) {
+			bufferSet.add(Integer.parseInt(s));
+		}
+		CustomUserDetails user = (CustomUserDetails) principal;
+		user.setBuffer(bufferSet);
+		return getDocuments(model, principal);
 	}
 }
