@@ -29,7 +29,6 @@ public class DeleteDocumentController {
         System.out.println("deleting...");
         deleteDocumentService.deleteDocument(docId, principal.getName());
 
-        //Doing the same thing MainController does, but using MainController didn't work so...
         return "redirect:/";
     }
 }
