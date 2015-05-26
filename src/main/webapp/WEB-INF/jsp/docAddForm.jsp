@@ -42,11 +42,11 @@
           </tr>
           <tr bgcolor='#ffffff'>
             <td bgcolor='#cccccc' style="padding:2px;" nowrap>Nimetus:</td>
-            <td style="padding:2px;">&nbsp;<b><font color='#0000ff'><input type="text" name="name" value=""/></font></b></td>
+            <td style="padding:2px;">&nbsp;<b><font color='#0000ff'><input type="text" name="name" value="${name}"/></font>${nameError}</b></td>
           </tr>
           <tr bgcolor='#ffffff'>
             <td bgcolor='#cccccc' style="padding:2px;" nowrap>Kirjeldus:</td>
-            <td style="padding:2px;">&nbsp;<b><font color='#0000ff'><input type="text" name="description" value=""/></font></b> </td>
+            <td style="padding:2px;">&nbsp;<b><font color='#0000ff'><input type="text" name="description" value="${description}"/></font>${descriptionError}</b></td>
           </tr>
           <c:forEach var="attribute" items="${docAttributes}">
             <tr bgcolor='#ffffff'>

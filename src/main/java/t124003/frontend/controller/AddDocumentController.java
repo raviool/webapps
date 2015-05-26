@@ -7,12 +7,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import t124003.backend.model.document.*;
 import t124003.backend.service.*;
 import t124003.backend.service.sessionmanagement.CustomUserDetails;
+import t124003.frontend.validator.DocumentValidator;
 
 import javax.servlet.http.HttpServletRequest;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -70,7 +74,32 @@ public class AddDocumentController {
 
     @RequestMapping(value = "/documentadd", method = RequestMethod.POST, params = {"add"})
     public String doPost(Model model, HttpServletRequest req) {
-        addDocumentService.addDocumentFromRequest(req, (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+    	DocumentValidator documentValidator = new DocumentValidator();
+    	HashMap<String, String> documentErrors = new HashMap<String, String>();
+    	
+    	Document document = new Document();
+    	document.setName(req.getParameter("name"));
+    	document.setDescription(req.getParameter("description"));
+    	
+    	documentErrors = documentValidator.Validate(document);
+    	
+    	if(documentErrors.size() > 0) {
+			String nameError = "";
+			String descriptionError = "";
+			if (documentErrors.get("name") != null) {
+				nameError = (String) documentErrors.get("name");
+			}
+			if (documentErrors.get("description") != null) {
+				descriptionError = (String) documentErrors.get("description");
+			}
+			req.setAttribute("name", req.getParameter("name"));
+			req.setAttribute("description", req.getParameter("description"));
+			req.setAttribute("nameError", nameError);
+			req.setAttribute("descriptionError", descriptionError);
+		} else {
+			addDocumentService.addDocumentFromRequest(req, (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+		}
+        
         return doGet(Integer.parseInt(req.getParameter("catalog")), Integer.parseInt(req.getParameter("type")), model);
     }
 
