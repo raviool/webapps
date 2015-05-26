@@ -2,7 +2,6 @@ package t124003.backend.service;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.springframework.stereotype.Service;
 
 /**
@@ -42,7 +41,8 @@ public class UpdateDateService {
         }
     }
 
-    public void updateDocEditDate(String username, int documentId) {
+    @SuppressWarnings("unused")
+	public void updateDocEditDate(String username, int documentId) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Integer catalog = null;
         try {
