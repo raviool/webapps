@@ -81,5 +81,16 @@
 	</table>
 	<input type="submit" value="Otsi">
 </form:form>
+<div ID="ajax_response" hidden="true"></div>
+<div ID="documents_list" style="visibility: hidden;">
+	<table style="border:0;border-collapse:separate;border-spacing:0px;">
+		<tr>
+			<td style="padding:0px;">
+				<table id="documentsTable" style="border:0;border-collapse:separate;border-spacing:1px;"></table>
+			</td>
+		</tr>
+	</table>
+	<input type="button" value="Sulge" onClick="hide_documents_list()">
+</div>
 </body>
 </html>
