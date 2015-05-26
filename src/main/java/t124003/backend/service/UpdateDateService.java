@@ -18,7 +18,7 @@ public class UpdateDateService {
             Query q = session.createQuery("SELECT subjectFk FROM UserAccount WHERE username=:username AND subjectTypeFk = 3");
             q.setString("username", username);
             Integer person = (Integer) q.uniqueResult();
-            //Töötaja id (employee)
+            //Tootaja id (employee)
             q = session.createQuery("SELECT employee FROM Employee WHERE personFk=:person");
             q.setInteger("person", person);
             Integer employee = (Integer) q.uniqueResult();
@@ -51,7 +51,7 @@ public class UpdateDateService {
             Query q = session.createQuery("SELECT subjectFk FROM UserAccount WHERE username=:username AND subjectTypeFk = 3");
             q.setString("username", username);
             Integer person = (Integer) q.uniqueResult();
-            //Töötaja id (employee)
+            //Tootaja id (employee)
             q = session.createQuery("SELECT employee FROM Employee WHERE personFk=:person");
             q.setInteger("person", person);
             Integer employee = (Integer) q.uniqueResult();
@@ -76,7 +76,7 @@ public class UpdateDateService {
             Query q = session.createQuery("SELECT subjectFk FROM UserAccount WHERE username=:username AND subjectTypeFk = 3");
             q.setString("username", username);
             Integer person = (Integer) q.uniqueResult();
-            //Töötaja id (employee)
+            //Tootaja id (employee)
             q = session.createQuery("SELECT employee FROM Employee WHERE personFk=:person");
             q.setInteger("person", person);
             Integer employee = (Integer) q.uniqueResult();

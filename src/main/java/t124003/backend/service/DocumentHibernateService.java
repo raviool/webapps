@@ -15,7 +15,6 @@ public class DocumentHibernateService {
 
     public DocumentHibernateService() {};
 
-
     public Document findById(int id) {
         Document document = null;
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();

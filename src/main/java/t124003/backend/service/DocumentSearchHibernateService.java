@@ -1,5 +1,6 @@
 package t124003.backend.service;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import t124003.backend.db.DBConnection;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @Service("documentSearchHibernateService")
 public class DocumentSearchHibernateService {
+	static Logger l = Logger.getLogger(DocumentSearchHibernateService.class.getName());
 
     public DocumentSearchHibernateService() {};
 
@@ -40,7 +42,7 @@ public class DocumentSearchHibernateService {
 				results.add(result);
 			}
 		} catch (SQLException e) {
-			// Log.
+        	l.error((new StringBuilder()).append("DocumentSearchHibernateService.findDocuments(): ").append(e.getMessage()));
 		} finally {
 			DBConnection.close(c);
 		}

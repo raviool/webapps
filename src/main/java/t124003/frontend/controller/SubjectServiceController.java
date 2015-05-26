@@ -48,7 +48,7 @@ public class SubjectServiceController {
 		try {
 			persons = personService.findPersonsByName(name);
 		} catch (NumberFormatException e) {
-			// Log.
+        	l.error((new StringBuilder()).append("SubjectServiceController.findPersonsByName(): ").append(e.getMessage()));
 		}
 		
 		return persons;
@@ -61,7 +61,7 @@ public class SubjectServiceController {
 		try {
 			persons = personService.findAllPersons();
 		} catch (NumberFormatException e) {
-			// Log.
+        	l.error((new StringBuilder()).append("SubjectServiceController.findAllPersons(): ").append(e.getMessage()));
 		}
 
 		return persons;
@@ -74,7 +74,7 @@ public class SubjectServiceController {
 		try {
 			pw = res.getWriter();
 		} catch (IOException e) {
-			// Log.
+        	l.error((new StringBuilder()).append("SubjectServiceController.personToJson(): ").append(e.getMessage()));
 		}
 		
 		String json = gson.toJson(persons);
@@ -99,7 +99,7 @@ public class SubjectServiceController {
 		try {
 			enterprises = enterpriseService.findEnterprisesByName(name);
 		} catch (NumberFormatException e) {
-			// Log.
+        	l.error((new StringBuilder()).append("SubjectServiceController.findEnterprisesByName(): ").append(e.getMessage()));
 		}
 		
 		return enterprises;
@@ -112,7 +112,7 @@ public class SubjectServiceController {
 		try {
 			enterprises = enterpriseService.findAllEnterprises();
 		} catch (NumberFormatException e) {
-			// Log.
+        	l.error((new StringBuilder()).append("SubjectServiceController.findAllEnterprises(): ").append(e.getMessage()));
 		}
 
 		return enterprises;
@@ -125,7 +125,7 @@ public class SubjectServiceController {
 		try {
 			pw = res.getWriter();
 		} catch (IOException e) {
-			// Log.
+        	l.error((new StringBuilder()).append("SubjectServiceController.enterpriseToJson(): ").append(e.getMessage()));
 		}
 		
 		String json = gson.toJson(enterprises);

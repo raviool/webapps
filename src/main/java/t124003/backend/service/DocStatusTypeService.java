@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import t124003.backend.db.DBConnection;
@@ -12,6 +13,8 @@ import t124003.backend.model.document.DocType;
 
 @Service("docTypeService")
 public class DocStatusTypeService {
+	static Logger l = Logger.getLogger(DocStatusTypeService.class.getName());
+	
 	private Connection c;
 	
 	public DocStatusTypeService() {}
@@ -20,7 +23,7 @@ public class DocStatusTypeService {
         try {
             this.setConnection(c);
         } catch(Exception e) {
-        	// Log.
+        	l.error((new StringBuilder()).append("DocStatusTypeService.DocStatusTypeService(): ").append(e.getMessage()));
         }
     }
 	
@@ -40,7 +43,7 @@ public class DocStatusTypeService {
 				docType.setTypeName(rs.getString("type_name"));
 			}
 		} catch (SQLException e) {
-			// Log.
+			l.error((new StringBuilder()).append("DocStatusTypeService.findById(): ").append(e.getMessage()));
 		} finally {
 			DBConnection.close(c);
 		}

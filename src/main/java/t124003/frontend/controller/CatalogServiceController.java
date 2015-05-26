@@ -22,7 +22,6 @@ import t124003.backend.service.*;
 
 @Controller
 public class CatalogServiceController {
-
 	static Logger l = Logger.getLogger(CatalogServiceController.class.getName());
 
 	@Autowired
@@ -46,7 +45,7 @@ public class CatalogServiceController {
 		try {
 			documents = docCatalogService.findDocumentsByCatalogId(catalog_id);
 		} catch (NumberFormatException e) {
-			// Log.
+        	l.error((new StringBuilder()).append("CatalogServiceController.doGet(): ").append(e.getMessage()));
 		}
 		
 		return documents;
@@ -59,7 +58,7 @@ public class CatalogServiceController {
 		try {
 			documents = docCatalogService.findAllDocuments();
 		} catch (NumberFormatException e) {
-			// Log.
+        	l.error((new StringBuilder()).append("CatalogServiceController.findAllDocuments(): ").append(e.getMessage()));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -74,7 +73,7 @@ public class CatalogServiceController {
 		try {
 			pw = res.getWriter();
 		} catch (IOException e) {
-			// Log.
+        	l.error((new StringBuilder()).append("CatalogServiceController.catalogToJson(): ").append(e.getMessage()));
 		}
 		
 		String json = gson.toJson(documents);

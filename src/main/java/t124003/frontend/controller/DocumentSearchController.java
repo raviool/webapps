@@ -152,7 +152,7 @@ public class DocumentSearchController {
 		try {
 			results = documentSearchService.findDocuments(query);
 		} catch (NumberFormatException e) {
-			// Log.
+        	l.error((new StringBuilder()).append("DocumentSearchController.findDocuments(): ").append(e.getMessage()));
 		}
 
 		return results;
@@ -165,7 +165,7 @@ public class DocumentSearchController {
 		try {
 			pw = res.getWriter();
 		} catch (IOException e) {
-			// Log.
+        	l.error((new StringBuilder()).append("DocumentSearchController.documentsToJson(): ").append(e.getMessage()));
 		}
 		
 		String json = gson.toJson(results);

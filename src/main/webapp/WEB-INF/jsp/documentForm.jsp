@@ -86,16 +86,6 @@
 						<td bgcolor='#cccccc' style="padding:2px;" nowrap>Nimi:</td>
 						<td style="padding:2px;">&nbsp;<b><font color='#0000ff'><form:input path="lastName" id="lastName"/></font></b><form:errors path="lastName" /></td>
 					</tr>
-					<!--<tr bgcolor='#ffffff'>
-						<td bgcolor='#cccccc' style="padding:2px;" nowrap>Seose tüüp:</td>
-						<td style="padding:2px;">
-							&nbsp;<select>
-							<c:forEach var="option" items="${docSubjectRelationTypes}">
-								<option>${option.typeName}</option>
-							</c:forEach>
-						</select>
-						</td>
-					</tr>-->
 				</table>
 			</td>
 		</tr>

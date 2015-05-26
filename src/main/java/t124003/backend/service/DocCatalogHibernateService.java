@@ -1,5 +1,6 @@
 package t124003.backend.service;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.stereotype.Service;
@@ -7,7 +8,6 @@ import org.springframework.stereotype.Service;
 import t124003.backend.db.DBConnection;
 import t124003.backend.model.document.DocCatalog;
 import t124003.backend.model.document.Document;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,6 +20,7 @@ import java.util.List;
  */
 @Service("DocCatalogHibernateService")
 public class DocCatalogHibernateService {
+	static Logger l = Logger.getLogger(DocCatalogHibernateService.class.getName());
 
     UpdateDateService updateDateService = new UpdateDateService();
 
@@ -52,7 +53,6 @@ public class DocCatalogHibernateService {
         return docCatalogs;
     }
 
-    // Non-hibernate method in an Hibernate service.
     public List<Document> findDocumentsByCatalogId(int catalog_id) throws SQLException {
         Connection c = null;
         Statement s = null;
@@ -72,7 +72,7 @@ public class DocCatalogHibernateService {
                 documents.add(document);
             }
         } catch (SQLException e) {
-            // Log.
+        	l.error((new StringBuilder()).append("DocCatalogHibernateService.findDocumentsByCatalogId(): ").append(e.getMessage()));
         } finally {
             DBConnection.close(c);
         }
@@ -80,7 +80,6 @@ public class DocCatalogHibernateService {
         return documents;
     }
 
-    // Non-hibernate method in an Hibernate service.
     public List<Document> findAllDocuments() throws SQLException {
         Connection c = null;
         Statement s = null;
@@ -100,7 +99,7 @@ public class DocCatalogHibernateService {
             }
             s.close();
         } catch (SQLException e) {
-            // Log.
+        	l.error((new StringBuilder()).append("DocCatalogHibernateService.findAllDocuments(): ").append(e.getMessage()));
         } finally {
             DBConnection.close(c);
         }
