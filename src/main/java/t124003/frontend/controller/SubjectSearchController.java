@@ -13,8 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import t124003.backend.model.document.DocSubject;
 import t124003.backend.model.document.DocSubjectRelationType;
-import t124003.backend.model.document.DocType;
-import t124003.backend.model.subject.Person;
 import t124003.backend.service.*;
 
 /**
@@ -53,11 +51,8 @@ public class SubjectSearchController {
 										    @RequestParam(value="relation", required = true) String relation,
 										    @RequestParam(value="note", required = true) String note,
 										    Model model) throws SQLException {
-		DocumentController documentController = new DocumentController();
 		DocSubject docSubject = new DocSubject();
-		DocType docStatusType = new DocType();
-		Person person = new Person();
-		
+
 		docSubject.setSubjectFk(subject);
 		docSubject.setDocumentFk(document);
 		docSubject.setDocSubjectTypeFk(type);
@@ -67,6 +62,6 @@ public class SubjectSearchController {
 		
 		docSubjectService.insertDocSubject(docSubject);
 		
-		return documentController.getDocument(String.valueOf(document), docStatusType, person, model);
+		return "redirect:/s?id=" + document;
 	}
 }
