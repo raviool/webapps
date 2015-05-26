@@ -21,6 +21,9 @@ import t124003.backend.model.subject.Enterprise;
 import t124003.backend.model.subject.Person;
 import t124003.backend.service.*;
 
+/**
+ * @author Dan
+ */
 @Controller
 public class SubjectServiceController {
 

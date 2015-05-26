@@ -20,6 +20,9 @@ import com.google.gson.Gson;
 import t124003.backend.model.document.Document;
 import t124003.backend.service.*;
 
+/**
+ * @author Dan
+ */
 @Controller
 public class CatalogServiceController {
 	static Logger l = Logger.getLogger(CatalogServiceController.class.getName());

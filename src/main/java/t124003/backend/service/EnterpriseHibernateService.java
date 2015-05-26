@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 import t124003.backend.model.subject.Enterprise;
 import java.util.List;
 
+/**
+ * @author Dan
+ */
 @Service("enterpriseHibernateService")
 public class EnterpriseHibernateService {
 

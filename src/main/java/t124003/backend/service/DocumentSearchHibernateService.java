@@ -13,6 +13,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Dan
+ */
 @Service("documentSearchHibernateService")
 public class DocumentSearchHibernateService {
 	static Logger l = Logger.getLogger(DocumentSearchHibernateService.class.getName());

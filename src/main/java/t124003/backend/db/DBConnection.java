@@ -2,6 +2,9 @@ package t124003.backend.db;
 import java.sql.*;
 import java.util.*;
 
+/**
+ * @author Dan
+ */
 public class DBConnection {
 	public static Connection getConnection() {
 		Connection c = null;  

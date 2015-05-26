@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 import t124003.backend.db.DBConnection;
 import t124003.backend.model.document.DocType;
 
+/**
+ * @author Dan
+ */
 @Service("docTypeService")
 public class DocStatusTypeService {
 	static Logger l = Logger.getLogger(DocStatusTypeService.class.getName());

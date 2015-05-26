@@ -8,6 +8,9 @@ import t124003.backend.model.subject.Person;
 
 import java.util.List;
 
+/**
+ * @author Dan
+ */
 @Service("personHibernateService")
 public class PersonHibernateService {
 

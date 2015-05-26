@@ -24,6 +24,9 @@ import t124003.backend.model.document.Document;
 import t124003.backend.model.view.Result;
 import t124003.backend.service.*;
 
+/**
+ * @author Dan
+ */
 @Controller
 public class DocumentSearchController {
 

@@ -17,6 +17,9 @@ import java.security.Principal;
 import java.util.HashSet;
 import java.util.List;
 
+/**
+ * @author Dan
+ */
 @Controller
 public class MainController {
 	static Logger l = Logger.getLogger(MainController.class.getName());

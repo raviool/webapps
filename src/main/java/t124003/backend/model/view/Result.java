@@ -1,5 +1,8 @@
 package t124003.backend.model.view;
 
+/**
+ * @author Dan
+ */
 public class Result {
 	private int document;
 	private String name;

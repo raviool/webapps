@@ -8,6 +8,9 @@ import t124003.backend.model.document.DocStatusType;
 
 import java.util.List;
 
+/**
+ * @author Dan
+ */
 @Service("docStatusTypeHibernateService")
 public class DocStatusTypeHibernateService {
 

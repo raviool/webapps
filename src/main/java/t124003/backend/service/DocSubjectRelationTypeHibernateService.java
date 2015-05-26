@@ -8,6 +8,9 @@ import t124003.backend.model.document.DocSubjectRelationType;
 
 import java.util.List;
 
+/**
+ * @author Dan
+ */
 @Service("docSubjectRelationTypeHibernateService")
 public class DocSubjectRelationTypeHibernateService {
 
