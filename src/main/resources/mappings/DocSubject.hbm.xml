@@ -7,6 +7,7 @@
     <class name="t124003.backend.model.document.DocSubject" table="doc_subject" schema="public" catalog="t124003_dokumendid">
         <id name="docSubject">
             <column name="doc_subject" sql-type="numeric" precision="10" not-null="true"/>
+            <generator class="identity"/>
         </id>
         <property name="docSubjectRelationTypeFk">
             <column name="doc_subject_relation_type_fk" sql-type="numeric" precision="10"/>

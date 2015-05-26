@@ -120,10 +120,10 @@ function show_subjects(persons, enterprises) {
 		table.innerHTML = "";
 		var tableContent = "<tr bgcolor='#ffffff'><td bgcolor='#cccccc' style='padding:2px;' nowrap>Subjekti nimi</td><td bgcolor='#cccccc' style='padding:2px;' nowrap>Subjekti tuup</td><td bgcolor='#cccccc' style='padding:2px;' nowrap></td></tr>"
 		for (var i=0; i<persons.length; i++) {
-			tableContent += "<tr bgcolor='#ffffff'><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'>" + persons[i].lastName + "</td><td style='padding:2px;'>&nbsp;Person</td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><input type='button' value='Loo seos'></td></tr>";
+			tableContent += "<tr bgcolor='#ffffff'><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'>" + persons[i].lastName + "</td><td style='padding:2px;'>&nbsp;Person</td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><a href='subjectSearch?subject=" + persons[i].person + "&document=" + document.getElementById("documentId").innerHTML + "&type=" + 1 + "'><input type='button' value='Loo seos'></a></td></tr>";
 		}
 		for (var i=0; i<enterprises.length; i++) {
-			tableContent += "<tr bgcolor='#ffffff'><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'>" + enterprises[i].name + "</td><td style='padding:2px;'>&nbsp;Enterprise</td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><input type='button' value='Loo seos'></td></tr>";
+			tableContent += "<tr bgcolor='#ffffff'><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'>" + enterprises[i].name + "</td><td style='padding:2px;'>&nbsp;Enterprise</td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><a href='subjectSearch?subject=" + enterprise[i].enterprise + "&document=" + document.getElementById("documentId").innerHTML + "&type=" + 2 + "'><input type='button' value='Loo seos'></a></td></tr>";
 		}
 		table.innerHTML = tableContent;
 		show_subjects_list();
@@ -131,7 +131,7 @@ function show_subjects(persons, enterprises) {
 		table.innerHTML = "";
 		var tableContent = "<tr bgcolor='#ffffff'><td bgcolor='#cccccc' style='padding:2px;' nowrap>Subjekti nimi</td><td bgcolor='#cccccc' style='padding:2px;' nowrap>Subjekti tuup</td><td bgcolor='#cccccc' style='padding:2px;' nowrap></td></tr>"
 		for (var i=0; i<enterprises.length; i++) {
-			tableContent += "<tr bgcolor='#ffffff'><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'>" + enterprises[i].name + "</td><td style='padding:2px;'>&nbsp;Enterprise</td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><input type='button' value='Loo seos'></td></tr>";
+			tableContent += "<tr bgcolor='#ffffff'><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'>" + enterprises[i].name + "</td><td style='padding:2px;'>&nbsp;Enterprise</td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><a href='subjectSearch?subject=" + enterprise[i].enterprise + "&document=" + document.getElementById("documentId").innerHTML + "&type=" + 2 + "'><input type='button' value='Loo seos'></a></td></tr>";
 		}
 		table.innerHTML = tableContent;
 		show_subjects_list();
@@ -139,7 +139,7 @@ function show_subjects(persons, enterprises) {
 		table.innerHTML = "";
 		var tableContent = "<tr bgcolor='#ffffff'><td bgcolor='#cccccc' style='padding:2px;' nowrap>Subjekti nimi</td><td bgcolor='#cccccc' style='padding:2px;' nowrap>Subjekti tuup</td><td bgcolor='#cccccc' style='padding:2px;' nowrap></td></tr>"
 		for (var i=0; i<persons.length; i++) {
-			tableContent += "<tr bgcolor='#ffffff'><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'>" + persons[i].lastName + "</td><td style='padding:2px;'>&nbsp;Person</td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><input type='button' value='Loo seos'></td></tr>";
+			tableContent += "<tr bgcolor='#ffffff'><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'>" + persons[i].lastName + "</td><td style='padding:2px;'>&nbsp;Person</td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><a href='subjectSearch?subject=" + persons[i].person + "&document=" + document.getElementById("documentId").innerHTML + "&type=" + 1 + "'><input type='button' value='Loo seos'></a></td></tr>";
 		}
 		table.innerHTML = tableContent;
 		show_subjects_list();

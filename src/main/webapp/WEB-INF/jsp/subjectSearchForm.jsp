@@ -19,33 +19,38 @@
 <jsp:include page="header.jsp" />
 
 <br>
-<form:form modelAttribute="person">
+<form:form modelAttribute="docSubjectRelationTypes">
+	<input name="subject" value="${docSubject.subjectFk}" type="hidden" />
+	<input name="document" value="${docSubject.documentFk}" type="hidden"/>
+	<input name="type" value="${docSubject.docSubjectTypeFk}" type="hidden"/>
 	<table style="background-color:#000000;border:0;border-collapse:separate;border-spacing:0px;">
 		<tr>
 			<td style="padding:0px;">
 				<table style="border:0;border-collapse:separate;border-spacing:1px;">
 					<tr bgcolor='#ffffff'>
-						<td bgcolor='#cccccc' colspan="2" style="padding:2px;" nowrap>SUBJEKTI OTSING</td>
-					</tr>
-					<tr bgcolor='#ffffff'>
-						<td bgcolor='#cccccc' style="padding:2px;" nowrap>Nimi:</td>
-						<td style="padding:2px;">&nbsp;<b><font color='#0000ff'><form:input path="lastName"/></font></b><form:errors path="lastName" /></td>
+						<td bgcolor='#cccccc' colspan="2" style="padding:2px;" nowrap>SUBJEKTI SEOS</td>
 					</tr>
 					<tr bgcolor='#ffffff'>
 						<td bgcolor='#cccccc' style="padding:2px;" nowrap>Seose tüüp:</td>
 						<td style="padding:2px;">
-							&nbsp;<select>
+							&nbsp;<select name="relation">
 							<c:forEach var="option" items="${docSubjectRelationTypes}">
 								<option>${option.typeName}</option>
 							</c:forEach>
 						</select>
 						</td>
 					</tr>
+					<tr bgcolor='#ffffff'>
+						<td bgcolor='#cccccc' style="padding:2px;" nowrap>Seose marge:</td>
+						<td style="padding:2px;">
+							&nbsp;<textarea name="note"></textarea>
+						</td>
+					</tr>
 				</table>
 			</td>
 		</tr>
 	</table>
-	<input type="submit" value="Otsi">
+	<input type="submit" value="Lisa">
 </form:form>
 </body>
 </html>

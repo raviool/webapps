@@ -19,9 +19,9 @@
 </head>
 <body bgcolor="white">
 <jsp:include page="header.jsp" />
-
 <br>
 <form:form modelAttribute="document">
+	<div style="display:none;" id="documentId">${document.document}</div>
 	<table style="background-color:#000000;border:0;border-collapse:separate;border-spacing:0px;">
 		<tr>
 			<td style="padding:0px;">
