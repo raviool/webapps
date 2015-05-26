@@ -21,6 +21,7 @@ import com.google.gson.Gson;
 import t124003.backend.model.document.DocStatusType;
 import t124003.backend.model.document.DocType;
 import t124003.backend.model.document.Document;
+import t124003.backend.model.view.Result;
 import t124003.backend.service.*;
 
 @Controller
@@ -59,7 +60,7 @@ public class DocumentServiceController {
     						   @RequestParam(value="doc_type", required = true) String doc_type,
     						   HttpServletResponse res) throws SQLException {
     	String query = "SELECT * FROM documentsearch";
-    	List<Document> documents;
+    	List<Result> results;
 		if (id != 0 || 
 			!name.equals("") ||
 			!description.equals("") ||
@@ -138,25 +139,25 @@ public class DocumentServiceController {
 		
 		query += ";";
 		
-		documents = findDocuments(query);
+		results = findDocuments(query);
 		
-		catalogToJson(documents, res);
+		documentsToJson(results, res);
     }
 
-	private List<Document> findDocuments(String query) {
+	private List<Result> findDocuments(String query) {
 		DocumentSearchHibernateService documentSearchService = new DocumentSearchHibernateService();
-		List<Document> documents = null;
+		List<Result> results = null;
 
 		try {
-			documents = documentSearchService.findDocuments(query);
+			results = documentSearchService.findDocuments(query);
 		} catch (NumberFormatException e) {
 			// Log.
 		}
 
-		return documents;
+		return results;
 	}
 	
-	private void catalogToJson (List<Document> documents, HttpServletResponse res) {
+	private void documentsToJson (List<Result> results, HttpServletResponse res) {
 		Gson gson = new Gson();
 		PrintWriter pw = null;
 		
@@ -166,7 +167,7 @@ public class DocumentServiceController {
 			// Log.
 		}
 		
-		String json = gson.toJson(documents);
+		String json = gson.toJson(results);
 		pw.print(json);
 	}
 	

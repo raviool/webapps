@@ -19,7 +19,7 @@ import java.util.HashSet;
  * Created by Raviool on 24.05.2015.
  */
 public class UserService implements UserDetailsService {
-    
+
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         CustomUserDetails userDetails = new CustomUserDetails();
         Connection c = null;
