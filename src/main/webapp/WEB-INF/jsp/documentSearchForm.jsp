@@ -56,6 +56,7 @@
 						<td bgcolor='#cccccc' style="padding:2px;" nowrap>Dokumendi staatus:</td>
 						<td style="padding:2px;">
 							&nbsp;<select id="doc_status">
+							<option selected></option>
 							<c:forEach var="option" items="${docStatusTypes}">
 								<option>${option.typeName}</option>
 							</c:forEach>
@@ -70,6 +71,7 @@
 						<td bgcolor='#cccccc' style="padding:2px;" nowrap>Dokumendi tüüp:</td>
 						<td style="padding:2px;">
 							&nbsp;<select id="doc_type">
+							<option selected></option>
 							<c:forEach var="option" items="${docTypes}">
 								<option>${option.typeName}</option>
 							</c:forEach>

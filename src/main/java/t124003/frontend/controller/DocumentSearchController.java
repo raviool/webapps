@@ -25,9 +25,9 @@ import t124003.backend.model.view.Result;
 import t124003.backend.service.*;
 
 @Controller
-public class DocumentServiceController {
+public class DocumentSearchController {
 
-	static Logger l = Logger.getLogger(DocumentServiceController.class.getName());
+	static Logger l = Logger.getLogger(DocumentSearchController.class.getName());
 
 	@Autowired
 	private DocumentSearchHibernateService documentSearchService;
