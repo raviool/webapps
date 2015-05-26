@@ -22,7 +22,7 @@ public class CustomUserDetails implements org.springframework.security.core.user
 
     Collection<GrantedAuthority> authorities;
 
-    Set<Integer> buffer;
+    HashSet<Integer> buffer;
 
     public void setPassword(String password) {
         this.password = password;
@@ -52,11 +52,11 @@ public class CustomUserDetails implements org.springframework.security.core.user
         this.authorities = authorities;
     }
 
-    public Set<Integer> getBuffer() {
+    public HashSet<Integer> getBuffer() {
         return buffer;
     }
 
-    public void setBuffer(Set<Integer> buffer) {
+    public void setBuffer(HashSet<Integer> buffer) {
         this.buffer = buffer;
     }
 

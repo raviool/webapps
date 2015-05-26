@@ -8,6 +8,12 @@ function get_documents(catalog_id, caller) {
 	initialize();
 	var url = server + "catalog?id=" + catalog_id;
 	catalog = catalog_id;
+	if (catalog_id != 0) {
+		document.getElementById("movecatalog").value = catalog_id;
+		document.getElementById("movebuffer").hidden = false;
+	} else {
+		document.getElementById("movebuffer").hidden = true;
+	}
 	if (selected_catalog) {
 		selected_catalog.style.fontWeight = "normal";
 	}
@@ -81,8 +87,11 @@ function show_documents(documents) {
 			 button.innerHTML = "<input type='button' value='Kustuta'>";
 			 name.innerHTML = "<input type='checkbox'>";*/
 		}
+
 		tableContent += "<input type='submit' name='submitbuffer' value='Puhvrisse'/>"
-		table.innerHTML = tableContent;
+
+		table.innerHTML += tableContent;
+
 		show_documents_list();
 	} else {
 		table.innerHTML = "<tr bgcolor='#ffffff'><td bgcolor='#cccccc' style='padding:2px;' nowrap>Kataloog:</td><td style='padding:2px;' colspan=3>" + path + "</td></tr><tr bgcolor='#ffffff'><td colspan='4' bgcolor='#ffffff'>Dokumente ei leitud</td></tr>";

@@ -21,6 +21,7 @@ import t124003.backend.service.*;
 import t124003.backend.service.sessionmanagement.CustomUserDetails;
 
 import javax.servlet.http.HttpSession;
+import java.nio.Buffer;
 import java.security.Principal;
 import java.util.HashSet;
 import java.util.List;
@@ -32,6 +33,9 @@ public class MainController {
 
 	@Autowired
 	private DocCatalogHibernateService docCatalogService;
+
+	@Autowired
+	private BufferService bufferService;
 
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String getDocuments(Model model, Principal principal) {
@@ -46,13 +50,22 @@ public class MainController {
 	}
 
 	@RequestMapping(value="/", method = RequestMethod.POST)
-	public String addToBuffer(@RequestParam("buffer") String[] buffer, Principal principal, Model model) {
-		Set<Integer> bufferSet = new HashSet<Integer>();
+	public String addToBuffer(@RequestParam(value = "buffer", required = false) String[] buffer, Principal principal, Model model) {
+		if (buffer == null) {
+			return getDocuments(model, principal);
+		}
+		HashSet<Integer> bufferSet = new HashSet<Integer>();
 		for (String s: buffer) {
 			bufferSet.add(Integer.parseInt(s));
 		}
-		CustomUserDetails user = (CustomUserDetails) principal;
+		CustomUserDetails user = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		user.setBuffer(bufferSet);
+		return getDocuments(model, principal);
+	}
+
+	@RequestMapping(value="/buffer", method = RequestMethod.POST)
+	public String addtoBuffer(@RequestParam("movecatalog") int catalog, Principal principal, Model model) {
+		bufferService.moveDocuments((CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal(), catalog, principal.getName());
 		return getDocuments(model, principal);
 	}
 }

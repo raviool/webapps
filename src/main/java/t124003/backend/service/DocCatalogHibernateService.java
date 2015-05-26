@@ -2,6 +2,7 @@ package t124003.backend.service;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.sql.Update;
 import org.springframework.stereotype.Service;
 
 import t124003.backend.db.DBConnection;
@@ -20,6 +21,8 @@ import java.util.List;
  */
 @Service("DocCatalogHibernateService")
 public class DocCatalogHibernateService {
+
+    UpdateDateService updateDateService = new UpdateDateService();
 
     @SuppressWarnings("unchecked")
     public List<DocCatalog> findAllCatalogs() {
@@ -41,7 +44,7 @@ public class DocCatalogHibernateService {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         try {
             session.beginTransaction();
-            Query q = session.createQuery("FROM DocCatalog WHERE level=:level");
+            Query q = session.createQuery("FROM DocCatalog WHERE level=:level ORDER BY docCatalog");
             q.setInteger("level", level);
             docCatalogs = q.list();
         } finally {
@@ -85,7 +88,7 @@ public class DocCatalogHibernateService {
         ResultSet rs = null;
         Document document;
         List<Document> documents = new ArrayList<Document>();
-        String query = "SELECT document, name FROM document INNER JOIN document_doc_catalog ON document.document=document_doc_catalog.document_fk;";
+        String query = "SELECT document, name FROM document INNER JOIN document_doc_catalog ON document.document=document_doc_catalog.document_fk ORDER BY document.document;";
         try {
             c = DBConnection.getConnection();
             s = c.createStatement();
@@ -123,5 +126,31 @@ public class DocCatalogHibernateService {
             session.close();
         }
         return catalog;
+    }
+
+    public void moveDocToCatalog(int document, int catalog, String username) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Integer oldCatalog = null;
+        try {
+            session.beginTransaction();
+            Query q = session.createQuery("SELECT docCatalogFk FROM DocumentDocCatalog WHERE documentFk=:document");
+            q.setInteger("document", document);
+            oldCatalog = (Integer) q.uniqueResult();
+            q = session.createQuery("UPDATE DocumentDocCatalog SET docCatalogFk=:catalog, catalogTime=current_timestamp WHERE documentFk=:document");
+            q.setInteger("catalog", catalog);
+            q.setInteger("document", document);
+            q.executeUpdate();
+        } finally {
+            session.getTransaction().commit();
+            if (session.isOpen()) {
+                session.close();
+            }
+        }
+        System.out.println(username + " " + document);
+        updateDateService.updateDocEditDate(username, document);
+        System.out.println(username + " " + catalog);
+        updateDateService.updateCatalogEditDate(username, catalog);
+        System.out.println(username + " " + oldCatalog);
+        updateDateService.updateCatalogEditDate(username, oldCatalog);
     }
 }
