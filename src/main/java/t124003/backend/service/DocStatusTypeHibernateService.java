@@ -24,6 +24,9 @@ public class DocStatusTypeHibernateService {
         } finally {
             session.close();
         }
+        DocStatusType empty = new DocStatusType();
+        empty.setTypeName("");
+        docStatusTypes.add(empty);
         return docStatusTypes;
     }
 }

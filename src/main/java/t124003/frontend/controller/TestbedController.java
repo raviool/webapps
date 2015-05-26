@@ -4,16 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import t124003.backend.model.document.Document;
 import t124003.backend.service.DocCatalogHibernateService;
 import t124003.backend.service.StatusUpdateService;
 import t124003.backend.service.UpdateDateService;
 
-import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
 import java.sql.SQLException;
-import java.util.List;
 
 /**
  * Created by Raviool on 26.05.2015.

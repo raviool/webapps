@@ -2,7 +2,6 @@ package t124003.backend.service;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.sql.Update;
 import org.springframework.stereotype.Service;
 
 import t124003.backend.db.DBConnection;

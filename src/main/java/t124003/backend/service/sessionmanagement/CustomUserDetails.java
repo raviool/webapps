@@ -1,15 +1,14 @@
 package t124003.backend.service.sessionmanagement;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by Raviool on 24.05.2015.
  */
+@SuppressWarnings("serial")
 public class CustomUserDetails implements org.springframework.security.core.userdetails.UserDetails {
 
     String password;

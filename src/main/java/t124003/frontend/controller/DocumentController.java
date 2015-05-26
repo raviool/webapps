@@ -10,13 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import t124003.backend.model.document.DocAttribute;
-import t124003.backend.model.document.DocSubjectRelationType;
 import t124003.backend.model.document.DocType;
 import t124003.backend.model.document.Document;
 import t124003.backend.model.subject.Person;
 import t124003.backend.service.DocAttributeHibernateService;
 import t124003.backend.service.DocStatusTypeService;
-import t124003.backend.service.DocSubjectRelationTypeHibernateService;
 import t124003.backend.service.DocumentHibernateService;
 
 import java.sql.SQLException;

@@ -5,6 +5,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
 import t124003.backend.db.DBConnection;
 
 import java.sql.Connection;
@@ -12,7 +13,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashSet;
 
 /**
@@ -20,7 +20,8 @@ import java.util.HashSet;
  */
 public class UserService implements UserDetailsService {
 
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    @SuppressWarnings("unused")
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         CustomUserDetails userDetails = new CustomUserDetails();
         Connection c = null;
         Statement s = null;

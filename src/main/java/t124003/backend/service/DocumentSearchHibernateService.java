@@ -28,7 +28,6 @@ public class DocumentSearchHibernateService {
 			c = DBConnection.getConnection();
 			s = c.createStatement();
 			rs = s.executeQuery(query);
-			System.out.println(query);
 			while (rs.next()) {
 				result = new Result();
 				result.setDocument(rs.getInt("document"));
