@@ -51,7 +51,7 @@ public class DocumentServiceController {
 	}
 	
     @RequestMapping(value="/documentSearch", method= RequestMethod.GET, params = {"id", "name", "description", "last_name", "doc_catalog_name", "doc_status", "doc_type"})
-    public void doGetDocuments(@RequestParam(value="id", required = true) int id,
+    public void doGetDocuments(@RequestParam(value="id", required = true) String id,
     						   @RequestParam(value="name", required = true) String name,
     						   @RequestParam(value="description", required = true) String description,
     						   @RequestParam(value="last_name", required = true) String last_name,
@@ -61,7 +61,8 @@ public class DocumentServiceController {
     						   HttpServletResponse res) throws SQLException {
     	String query = "SELECT * FROM documentsearch";
     	List<Result> results;
-		if (id != 0 || 
+    	System.out.println(id);
+		if (!id.equals("") || 
 			!name.equals("") ||
 			!description.equals("") ||
 			!last_name.equals("") ||
@@ -70,7 +71,7 @@ public class DocumentServiceController {
 			!doc_type.equals("")) {
 			query += " WHERE";
 			int i = 0;
-			if (id != 0) {
+			if (!id.equals("")) {
 				if (i == 0) {
 					query += " document=" + id;
 					i++;

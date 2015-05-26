@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service("documentSearchHibernateService")
@@ -27,6 +28,7 @@ public class DocumentSearchHibernateService {
 			c = DBConnection.getConnection();
 			s = c.createStatement();
 			rs = s.executeQuery(query);
+			System.out.println(query);
 			while (rs.next()) {
 				result = new Result();
 				result.setDocument(rs.getInt("document"));
