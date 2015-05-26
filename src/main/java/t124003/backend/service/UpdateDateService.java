@@ -42,7 +42,7 @@ public class UpdateDateService {
     }
 
     @SuppressWarnings("unused")
-	public void updateDocEditDate(String username, int documentId) {
+    public void updateDocEditDate(String username, int documentId) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Integer catalog = null;
         try {
@@ -88,8 +88,6 @@ public class UpdateDateService {
             q = session.createQuery("SELECT docCatalogFk FROM DocumentDocCatalog WHERE documentFk=:documentId");
             q.setInteger("documentId", documentId);
             Integer catalog = (Integer) q.uniqueResult();
-            updateCatalogEditDate(username, catalog);
-
         } finally {
             session.getTransaction().commit();
             if (session.isOpen()) {

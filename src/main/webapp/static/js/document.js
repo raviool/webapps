@@ -11,8 +11,11 @@ function get_documents(catalog_id, caller) {
 	if (catalog_id != 0) {
 		document.getElementById("movecatalog").value = catalog_id;
 		document.getElementById("movebuffer").hidden = false;
+		document.getElementById("addlink").href = "/addtypeselection?catalog=" + catalog_id;
+		document.getElementById("addlink").hidden = false;
 	} else {
 		document.getElementById("movebuffer").hidden = true;
+		document.getElementById("addlink").hidden = true;
 	}
 	if (selected_catalog) {
 		selected_catalog.style.fontWeight = "normal";
@@ -74,7 +77,7 @@ function show_documents(documents) {
 		table.innerHTML = "";
 		var tableContent = "<tr bgcolor='#ffffff'><td bgcolor='#cccccc' style='padding:2px;' nowrap>Kataloog:</td><td style='padding:2px;' colspan=3>" + path + "</td></tr><tr bgcolor='#ffffff'><td bgcolor='#cccccc' style='padding:2px;'' nowrap>Dok.nr.</td><td bgcolor='#cccccc' style='padding:2px;' nowrap>Dokumendi nimi</td><td bgcolor='#cccccc' style='padding:2px;'' nowrap></td><td bgcolor='#cccccc' style='padding:2px;' nowrap></td></tr>"
 		for (var i=0; i<documents.length; i++) {
-			tableContent += "<tr bgcolor='#ffffff'><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'>" + documents[i].document + "</td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><a href='s?id=" + documents[i].document + "'>" + documents[i].name + "</a></td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><input type='button' value='Kustuta'></td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><input name='buffer' type='checkbox' value=" + documents[i].document + "></td></tr>";
+			tableContent += "<tr bgcolor='#ffffff'><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'>" + documents[i].document + "</td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><a href='s?id=" + documents[i].document + "'>" + documents[i].name + "</a></td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><a href='/delete?doc=" + documents[i].document + "'><input type='button' value='Kustuta'/></a></td><td style='padding:2px;'>&nbsp;<b><font color='#0000ff'><input name='buffer' type='checkbox' value=" + documents[i].document + "></td></tr>";
 			/*var row = table.insertRow(-1);
 
 			 var id = row.insertCell(0);

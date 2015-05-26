@@ -29,4 +29,17 @@ public class DocTypeHibernateService {
         }
         return docTypes;
     }
+
+    public List<DocType> findUsableDocTypes() {
+        List <DocType> docTypes = null;
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        try {
+            session.beginTransaction();
+            Query q = session.createQuery("FROM DocType WHERE level=2");
+            docTypes = q.list();
+        } finally {
+            session.close();
+        }
+        return docTypes;
+    }
 }

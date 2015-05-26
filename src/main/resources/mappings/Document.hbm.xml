@@ -7,6 +7,7 @@
     <class name="t124003.backend.model.document.Document" table="document" schema="public" catalog="t124003_dokumendid">
         <id name="document">
             <column name="document" sql-type="numeric" precision="10" not-null="true"/>
+            <generator class="identity"/>
         </id>
         <property name="docNr">
             <column name="doc_nr" sql-type="text" length="2147483647"/>

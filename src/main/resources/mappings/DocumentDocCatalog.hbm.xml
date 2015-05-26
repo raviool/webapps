@@ -8,6 +8,7 @@
            catalog="t124003_dokumendid">
         <id name="documentDocCatalog">
             <column name="document_doc_catalog" sql-type="numeric" precision="10" not-null="true"/>
+            <generator class="identity"/>
         </id>
         <property name="documentFk">
             <column name="document_fk" sql-type="numeric" precision="10"/>

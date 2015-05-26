@@ -1,6 +1,7 @@
 package t124003.backend.model.document;
 
 import java.math.BigInteger;
+import java.util.List;
 
 /**
  * Created by Raviool on 21.05.2015.
@@ -10,12 +11,15 @@ public class DocAttributeType {
     private Integer defaultSelectionIdFk;
     private String typeName;
     private String defaultValueText;
-    private BigInteger dataTypeFk;
+    private Integer dataTypeFk;
     private String multipleAttributes;
+
+    private List<AtrTypeSelectionValue> selectionValues;
 
     public Integer getDocAttributeType() {
         return docAttributeType;
     }
+
 
     public void setDocAttributeType(Integer docAttributeType) {
         this.docAttributeType = docAttributeType;
@@ -45,11 +49,11 @@ public class DocAttributeType {
         this.defaultValueText = defaultValueText;
     }
 
-    public BigInteger getDataTypeFk() {
+    public Integer getDataTypeFk() {
         return dataTypeFk;
     }
 
-    public void setDataTypeFk(BigInteger dataTypeFk) {
+    public void setDataTypeFk(Integer dataTypeFk) {
         this.dataTypeFk = dataTypeFk;
     }
 
@@ -59,6 +63,14 @@ public class DocAttributeType {
 
     public void setMultipleAttributes(String multipleAttributes) {
         this.multipleAttributes = multipleAttributes;
+    }
+
+    public List<AtrTypeSelectionValue> getSelectionValues() {
+        return selectionValues;
+    }
+
+    public void setSelectionValues(List<AtrTypeSelectionValue> selectionValues) {
+        this.selectionValues = selectionValues;
     }
 
     @Override

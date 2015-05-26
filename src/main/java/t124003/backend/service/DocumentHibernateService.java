@@ -43,4 +43,18 @@ public class DocumentHibernateService {
         }
         return docType;
     }
+
+    public DocType findDocType(int type) {
+        DocType docType = null;
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        try {
+            session.beginTransaction();
+            Query q = session.createQuery("FROM DocType WHERE docType=:type");
+            q.setInteger("type", type);
+            docType = (DocType) q.uniqueResult();
+        } finally {
+            session.close();
+        }
+        return docType;
+    }
 }

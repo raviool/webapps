@@ -53,6 +53,21 @@ public class DocCatalogHibernateService {
         return docCatalogs;
     }
 
+    public DocCatalog findCatalog(int id) {
+        DocCatalog catalog = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            Query q = session.createQuery("FROM DocCatalog WHERE docCatalog=:catalog");
+            q.setInteger("catalog", id);
+            catalog = (DocCatalog) q.uniqueResult();
+        } finally {
+            session.close();
+        }
+        return catalog;
+    }
+
+    // Non-hibernate method in an Hibernate service.
     public List<Document> findDocumentsByCatalogId(int catalog_id) throws SQLException {
         Connection c = null;
         Statement s = null;
