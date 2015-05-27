@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import t124003.backend.model.document.DocAttribute;
+import t124003.backend.model.document.DocStatusType;
 import t124003.backend.model.document.DocType;
 import t124003.backend.model.document.Document;
 import t124003.backend.model.subject.Person;
-import t124003.backend.service.DocAttributeHibernateService;
-import t124003.backend.service.DocStatusTypeService;
-import t124003.backend.service.DocumentHibernateService;
+import t124003.backend.model.view.Subject;
+import t124003.backend.service.*;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -35,6 +35,12 @@ public class DocumentController {
 
     @Autowired
     private DocAttributeHibernateService docAttributeService;
+
+    @Autowired
+    private DocSubjectRelationService docSubjectRelationService;
+
+    @Autowired
+    private StatusHibernateService statusService;
     
     /*@Autowired
     private DocSubjectRelationTypeHibernateService docSubjectRelationTypeService;*/
@@ -43,6 +49,7 @@ public class DocumentController {
     public String getDocument(@RequestParam(value="id") String document_id, @ModelAttribute DocType docStatusType, @ModelAttribute Person person, Model model) throws SQLException {
         Document document;
         DocType docType;
+        List<Subject> docSubjects;
         //List<DocSubjectRelationType> docSubjectRelationTypes;
         //docSubjectRelationTypes = docSubjectRelationTypeService.findDocSubjectRelationTypes();
         List<DocAttribute> docAttributes;
@@ -51,6 +58,7 @@ public class DocumentController {
             docType = documentService.findDocType(document);
             docStatusType = docStatusTypeService.findById(Integer.parseInt(document_id));
             docAttributes = docAttributeService.findDocumentAttributes(Integer.parseInt(document_id));
+            docSubjects = docSubjectRelationService.getRelatedSubjects(Integer.parseInt(document_id));
             for (DocAttribute da: docAttributes) {
                 da.setSelectionValues(docAttributeService.findSelectionAttributeValues(da));
             }
@@ -59,11 +67,14 @@ public class DocumentController {
             return "error";
         }
         if (document != null) {
+            List<DocStatusType> statuses = statusService.getStatuses();
             model.addAttribute("document", document);
             model.addAttribute("docStatusType", docStatusType);
             model.addAttribute("docAttributes", docAttributes);
             model.addAttribute("docType", docType);
             model.addAttribute("person", person);
+            model.addAttribute("subjects", docSubjects);
+            model.addAttribute("statuses", statuses);
             //model.addAttribute("docSubjectRelationTypes", docSubjectRelationTypes);
             return "documentForm";
         } else {

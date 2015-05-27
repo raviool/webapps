@@ -212,11 +212,6 @@
       <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
       <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
     </table>
-    <table name="doc_catalog_type" schema="public" catalog="t124003_dokumendid" type="TABLE">
-      <column name="doc_catalog_type" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2"/>
-      <column name="type_name" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="doc_catalog_type_pk" columns="doc_catalog_type"/>
-    </table>
     <table name="doc_status" schema="public" catalog="t124003_dokumendid" type="TABLE">
       <column name="doc_status" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnZG9jX3N0YXR1c19pZCc6OnJlZ2NsYXNzKQ==" autoIncrement="true"/>
       <column name="document_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
@@ -419,6 +414,15 @@
       <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
       <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
     </table>
+    <table name="documentsearch" schema="public" catalog="t124003_dokumendid" type="VIEW">
+      <column name="document" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="name" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="last_name" sqlType="varchar" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="doc_catalog_name" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="doc_status" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="doc_type" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
+    </table>
     <table name="employee" schema="public" catalog="t124003_dokumendid" type="TABLE">
       <column name="employee" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnZW1wbG95ZWVfaWQnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
       <column name="person_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
@@ -572,6 +576,38 @@
       <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
       <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
     </table>
+    <table name="relatedenterprises" schema="public" catalog="t124003_dokumendid" type="VIEW">
+      <column name="enterprise" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="name" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="full_name" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="created_by" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="updated_by" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="created" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="updated" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="doc_subject" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="doc_subject_relation_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="doc_subject_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="document_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="subject_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="note" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="relatedpersons" schema="public" catalog="t124003_dokumendid" type="VIEW">
+      <column name="person" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="first_name" sqlType="varchar" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="last_name" sqlType="varchar" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="identity_code" sqlType="varchar" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="birth_date" sqlType="date" precision="13" scale="0" nullable="true" jdbcType="91"/>
+      <column name="created_by" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="updated_by" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="created" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="updated" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="doc_subject" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="doc_subject_relation_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="doc_subject_type_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="document_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="subject_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
+      <column name="note" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+    </table>
     <table name="struct_unit" schema="public" catalog="t124003_dokumendid" type="TABLE">
       <column name="struct_unit" sqlType="numeric" precision="10" scale="0" nullable="false" jdbcType="2" def="bmV4dHZhbCgnc3RydWN0X3VuaXRfaWQnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
       <column name="enterprise_fk" sqlType="numeric" precision="10" scale="0" nullable="true" jdbcType="2"/>
@@ -688,5 +724,15 @@
       <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
       <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
     </table>
+    <procedure name="create_subject_relation" schema="public" catalog="t124003_dokumendid" type="2">
+      <prototype>
+        <parameter name="doc_id" sqlType="int4" precision="0" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="sub_type" sqlType="int4" precision="0" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="sub_id" sqlType="int4" precision="0" scale="0" nullable="true" jdbcType="4" type="1" index="3"/>
+        <parameter name="rel_type" sqlType="int4" precision="0" scale="0" nullable="true" jdbcType="4" type="1" index="4"/>
+        <parameter name="note" sqlType="text" precision="0" scale="0" nullable="true" jdbcType="12" type="1" index="5"/>
+        <parameter name="returnValue" sqlType="void" precision="0" scale="0" nullable="true" jdbcType="1111" type="5" index="0"/>
+      </prototype>
+    </procedure>
   </data-source>
 </component>
