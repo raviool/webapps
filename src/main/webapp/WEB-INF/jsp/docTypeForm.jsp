@@ -22,7 +22,7 @@
 </head>
 <body>
 <jsp:include page="header.jsp" />
-<form action="/documentadd" method="GET">
+<form action="documentadd" method="GET">
   <table style="background-color:#000000;border:0;border-collapse:separate;border-spacing:0px;">
     <tr bgcolor='#ffffff'>
       <td bgcolor='#cccccc' style="padding:2px;" nowrap>Kataloog</td>

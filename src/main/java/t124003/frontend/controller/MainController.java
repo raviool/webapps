@@ -14,6 +14,7 @@ import t124003.backend.service.*;
 import t124003.backend.service.sessionmanagement.CustomUserDetails;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
@@ -21,6 +22,7 @@ import java.util.List;
  * @author Dan
  */
 @Controller
+@RequestMapping("/")
 public class MainController {
 	static Logger l = Logger.getLogger(MainController.class.getName());
 
@@ -29,12 +31,12 @@ public class MainController {
 
 	@Autowired
 	private BufferService bufferService;
-	
+
 	public void init() {
 		l.error("MainController.init(): Mind loodi.");
 	}
 
-	@RequestMapping(value="/", method=RequestMethod.GET)
+	@RequestMapping(method=RequestMethod.GET)
 	public String getDocuments(Model model, Principal principal) {
 		model.addAttribute("session", principal.getName());
 		List<DocCatalog> docRootCatalogs;
@@ -46,7 +48,7 @@ public class MainController {
 		return "mainForm";
 	}
 
-	@RequestMapping(value="/", method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST)
 	public String addToBuffer(@RequestParam(value = "buffer", required = false) String[] buffer, Principal principal, Model model) {
 		if (buffer == null) {
 			return getDocuments(model, principal);
@@ -60,9 +62,12 @@ public class MainController {
 		return getDocuments(model, principal);
 	}
 
-	@RequestMapping(value="/buffer", method = RequestMethod.POST)
-	public String addtoBuffer(@RequestParam("movecatalog") int catalog, Principal principal, Model model) {
-		bufferService.moveDocuments((CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal(), catalog, principal.getName());
-		return getDocuments(model, principal);
+	@RequestMapping(value="buffer", method = RequestMethod.POST)
+	public String moveBuffer(@RequestParam(value = "buffer", required = false) String[] buffer, @RequestParam(value="movecatalog", required = false) String catalog, Principal principal, Model model) {
+		if (catalog != null) {
+			int catalogId = Integer.parseInt(catalog);
+			bufferService.moveDocuments((CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal(), catalogId, principal.getName());
+		}
+		return addToBuffer(buffer, principal, model);
 	}
 }

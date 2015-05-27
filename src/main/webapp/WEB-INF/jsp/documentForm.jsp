@@ -21,7 +21,7 @@
 <jsp:include page="header.jsp" />
 <br>
 
-<form name="edit" action="/edit" method="POST">
+<form name="edit" action="edit" method="POST">
 	<table style="background-color:#000000;border:0;border-collapse:separate;border-spacing:0px;">
 		<tr>
 			<td style="padding:0px;">
@@ -145,7 +145,7 @@
 			<td bgcolor='#cccccc' style="padding:2px;" nowrap>${subject.name}</td>
 			<td bgcolor='#cccccc' style="padding:2px;" nowrap>${subject.type}</td>
 			<td bgcolor='#cccccc' style="padding:2px;" nowrap>${subject.note}</td>
-			<td bgcolor='#cccccc' style="padding:2px;" nowrap><a href="/deleterel?id=${subject.relationId}&doc=${document.document}"><input type="button" value="Kustuta"/></a></td>
+			<td bgcolor='#cccccc' style="padding:2px;" nowrap><a href="deleterel?id=${subject.relationId}&doc=${document.document}"><input type="button" value="Kustuta"/></a></td>
 		</tr>
 	</c:forEach>
 </table>

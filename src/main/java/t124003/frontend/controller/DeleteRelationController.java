@@ -18,9 +18,9 @@ public class DeleteRelationController {
     @Autowired
     DocSubjectRelationService docSubjectRelationService;
 
-    @RequestMapping("/deleterel")
+    @RequestMapping("deleterel")
     public String deleteRelation(@RequestParam("id") int relId, @RequestParam("doc") int docId) {
         docSubjectRelationService.deleteRelation(relId, docId);
-        return "redirect:/s?id=" + docId;
+        return "redirect:s?id=" + docId;
     }
 }

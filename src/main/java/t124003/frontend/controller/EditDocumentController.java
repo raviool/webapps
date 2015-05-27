@@ -23,6 +23,6 @@ private EditDocumentService editDocumentService;
     public String doPost(HttpServletRequest req) {
         int id = Integer.parseInt(req.getParameter("id"));
         editDocumentService.editDocumentFromRequest(req, (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-        return "redirect:/s?id=" + id;
+        return "redirect:s?id=" + id;
     }
 }
