@@ -23,4 +23,16 @@ public class DocumentValidator {
         
         return documentErrors;
     }
+	
+	public HashMap<String, String> ValidateSearch(String note) {
+    	HashMap<String, String> searchErrors = new HashMap<String, String>();
+
+        if (note.length() < 1) {
+        	searchErrors.put("note", " Tuhi dokumendi nimi!");
+        } else if (note.length() > 100) {
+        	searchErrors.put("note", " Liiga pikk dokumendi nimi!");
+        }
+        
+        return searchErrors;
+    }
 }

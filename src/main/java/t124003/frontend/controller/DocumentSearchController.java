@@ -23,6 +23,7 @@ import t124003.backend.model.document.DocType;
 import t124003.backend.model.document.Document;
 import t124003.backend.model.view.Result;
 import t124003.backend.service.*;
+import t124003.frontend.validator.DocumentValidator;
 
 /**
  * @author Dan
@@ -60,10 +61,10 @@ public class DocumentSearchController {
     						   @RequestParam(value="doc_catalog_name", required = true) String doc_catalog_name,
     						   @RequestParam(value="doc_status", required = true) String doc_status,
     						   @RequestParam(value="doc_type", required = true) String doc_type,
-    						   HttpServletResponse res) throws SQLException {
+    						   HttpServletResponse res) throws SQLException {	
     	String query = "SELECT * FROM documentsearch";
     	List<Result> results;
-    	System.out.println(id);
+    	
 		if (!id.equals("") || 
 			!name.equals("") ||
 			!description.equals("") ||

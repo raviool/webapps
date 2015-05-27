@@ -43,7 +43,7 @@
 					<tr bgcolor='#ffffff'>
 						<td bgcolor='#cccccc' style="padding:2px;" nowrap>Seose marge:</td>
 						<td style="padding:2px;">
-							&nbsp;<textarea name="note"></textarea>
+							&nbsp;<textarea name="note">${note}</textarea>${noteError}
 						</td>
 					</tr>
 				</table>
