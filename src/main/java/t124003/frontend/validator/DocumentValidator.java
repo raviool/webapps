@@ -14,11 +14,15 @@ public class DocumentValidator {
     	String name = document.getName();
     	String description = document.getDescription();
 
-        if(name.length() < 1) {
+        if (name.length() < 1) {
         	documentErrors.put("name", " Tuhi dokumendi nimi!");
+        } else if (name.matches("[0-9]+") && name.length() > 1) {
+        	documentErrors.put("name", " Nimi ei tohi sisaldada ainult numbreid!");
         }
-        if(description.length() < 1) {
+        if (description.length() < 1) {
         	documentErrors.put("description", " Tuhi dokumendi kirjeldus!");
+        } else if (description.length() > 100) {
+        	documentErrors.put("description", " Liiga pikk dokumendi kirjeldus!!");
         }
         
         return documentErrors;
