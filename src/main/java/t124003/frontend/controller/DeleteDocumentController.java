@@ -24,11 +24,11 @@ public class DeleteDocumentController {
     @Autowired
     DeleteDocumentService deleteDocumentService;
 
-    @RequestMapping("/delete")
+    @RequestMapping("delete")
     public String doGet(@RequestParam("doc") int docId, Model model, Principal principal) {
         System.out.println("deleting...");
         deleteDocumentService.deleteDocument(docId, principal.getName());
 
-        return "redirect:/";
+        return "redirect:?";
     }
 }

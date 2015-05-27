@@ -83,7 +83,7 @@ public class SubjectSearchController {
 			
 			docSubjectService.insertDocSubject(docSubject);
 			
-			return "redirect:/s?id=" + document;
+			return "redirect:s?id=" + document;
 		}
 	}
 }

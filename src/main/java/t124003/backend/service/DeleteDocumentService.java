@@ -14,7 +14,7 @@ public class DeleteDocumentService {
         System.out.println("Document:"  + docId);
         System.out.println("Username:" + username);
         DocCatalogHibernateService docCatalogHibernateService = new DocCatalogHibernateService();
-        Integer catalog = new Integer(docCatalogHibernateService.findDocumentCatalog(docId));
+        Integer catalog = docCatalogHibernateService.findDocumentCatalog(docId);
         deleteFromDocument(docId);
         deleteFromDocAttribute(docId);
         deleteFromDocumentDocCatalog(docId);

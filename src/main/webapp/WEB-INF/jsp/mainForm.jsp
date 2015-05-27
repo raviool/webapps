@@ -44,8 +44,8 @@
 	<table style="border:0;border-collapse:separate;border-spacing:0px;">
 		<tr>
 			<td style="padding:0px;">
-				<form method='POST' action='/?addtobuffer'><table id="documentsTable" style="border:0;border-collapse:separate;border-spacing:1px;"></table></form>
-				<form id="movebuffer" name='movebuffer' action='/buffer' method='POST'><input id="movecatalog" type="hidden" name="movecatalog" value=""/><input type='submit' value='Liiguta puhver siia'/></form>
+				<form method='POST' action='?addtobuffer'><table id="documentsTable" style="border:0;border-collapse:separate;border-spacing:1px;"></table></form>
+				<form id="movebuffer" name='movebuffer' action='buffer' method='POST'><input id="movecatalog" type="hidden" name="movecatalog" value=""/><input type='submit' value='Liiguta puhver siia'/></form>
 				<a hidden="hidden" id="addlink" href=""><input type="button" value="Lisa dokument siia"/></a>
 			</td>
 		</tr>
