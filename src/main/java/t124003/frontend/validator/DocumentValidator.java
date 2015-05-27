@@ -28,9 +28,9 @@ public class DocumentValidator {
     	HashMap<String, String> searchErrors = new HashMap<String, String>();
 
         if (note.length() < 1) {
-        	searchErrors.put("note", " Tuhi dokumendi nimi!");
+        	searchErrors.put("note", " Tuhi dokumendi marge!");
         } else if (note.length() > 100) {
-        	searchErrors.put("note", " Liiga pikk dokumendi nimi!");
+        	searchErrors.put("note", " Liiga pikk dokumendi marge!");
         }
         
         return searchErrors;
