@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.8" icons="true">  
+  <object id="1" language="java" name="javax.servlet.jsp.JspPage" project="JSP_servlet_bean" 
+    file="C:/Users/Dan/.m2/repository/javax/javaee-web-api/7.0/javaee-web-api-7.0.jar" binary="true" label="jspPage" 
+    type="interface" autoSize="true">    
+    <position height="-1" width="-1" x="555" y="0"/>    
+    <execution id="2">      
+      <position height="21" width="77" x="849" y="371"/>    
+    </execution>    
+    <execution id="3">      
+      <position height="527" width="77" x="849" y="462"/>    
+    </execution>    
+    <execution id="6">      
+      <position height="21" width="77" x="1369" y="926"/>    
+    </execution>    
+    <execution id="7">      
+      <position height="356" width="77" x="5" y="78"/>    
+    </execution>  
+  </object>  
+  <object id="10" language="java" name="t124003.frontend.controller.DocumentSearchController" project="document" 
+    file="/document/src/main/java/t124003/frontend/controller/DocumentSearchController.java" binary="false" 
+    label="documentSearchController" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="106" y="0"/>    
+    <execution id="9">      
+      <position height="314" width="178" x="5" y="99"/>    
+    </execution>    
+    <execution id="12">      
+      <position height="241" width="178" x="5" y="141"/>    
+    </execution>    
+    <execution id="5">      
+      <position height="485" width="178" x="5" y="483"/>    
+    </execution>    
+    <execution id="25">      
+      <position height="115" width="0" x="0" y="525"/>    
+    </execution>    
+    <execution id="27">      
+      <position height="199" width="0" x="0" y="671"/>    
+    </execution>  
+  </object>  
+  <object id="41" language="java" name="com.google.gson.Gson" project="document" 
+    file="C:/Users/Dan/.m2/repository/com/google/code/gson/gson/2.3.1/gson-2.3.1.jar" binary="true" label="gson" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="34">      
+      <position height="21" width="0" x="0" y="702"/>    
+    </execution>    
+    <execution id="38">      
+      <position height="21" width="0" x="0" y="786"/>    
+    </execution>  
+  </object>  
+  <object id="42" language="java" name="javax.servlet.ServletResponse" project="document" 
+    file="C:/Users/Dan/.m2/repository/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar" binary="true" label="res" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="36">      
+      <position height="21" width="0" x="0" y="744"/>    
+    </execution>  
+  </object>  
+  <object id="43" language="java" name="java.io.PrintWriter" project="document" 
+    file="C:/Program Files/Java/jre1.8.0_31/lib/rt.jar" binary="true" label="pw" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="40">      
+      <position height="21" width="0" x="0" y="828"/>    
+    </execution>  
+  </object>  
+  <object id="44" language="java" name="t124003.backend.service.DocumentSearchHibernateService" project="document" 
+    file="/document/src/main/java/t124003/backend/service/DocumentSearchHibernateService.java" binary="false" 
+    label="documentSearchService" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="30">      
+      <position height="21" width="0" x="0" y="556"/>    
+    </execution>    
+    <execution id="32">      
+      <position height="21" width="0" x="0" y="598"/>    
+    </execution>  
+  </object>  
+  <object id="45" language="java" name="t124003.backend.service.DocTypeHibernateService" project="document" 
+    file="/document/src/main/java/t124003/backend/service/DocTypeHibernateService.java" binary="false" 
+    label="docTypeService" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="15">      
+      <position height="21" width="0" x="0" y="172"/>    
+    </execution>  
+  </object>  
+  <object id="46" language="java" name="org.springframework.ui.Model" project="document" 
+    file="C:/Users/Dan/.m2/repository/org/springframework/spring-context/4.1.1.RELEASE/spring-context-4.1.1.RELEASE.jar" 
+    binary="true" label="model" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="19">      
+      <position height="21" width="0" x="0" y="256"/>    
+    </execution>    
+    <execution id="21">      
+      <position height="21" width="0" x="0" y="298"/>    
+    </execution>    
+    <execution id="23">      
+      <position height="21" width="0" x="0" y="340"/>    
+    </execution>  
+  </object>  
+  <object id="47" language="java" name="t124003.backend.service.DocTypeHibernateService" project="document" 
+    file="/document/src/main/java/t124003/backend/service/DocTypeHibernateService.java" binary="false" 
+    label="docTypeHibernateService" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="359" y="0"/>  
+  </object>  
+  <object id="48" language="java" name="t124003.backend.service.DocStatusTypeHibernateService" project="document" 
+    file="/document/src/main/java/t124003/backend/service/DocStatusTypeHibernateService.java" binary="false" 
+    label="docStatusTypeHibernateService" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="493" y="0"/>    
+    <execution id="17">      
+      <position height="21" width="0" x="0" y="214"/>    
+    </execution>  
+  </object>  
+  <message id="4" 
+    operation="doGetDocuments(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse):void">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="5"/>  
+  </message>  
+  <message id="8">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="11" 
+    operation="getDocumentSearch(t124003.backend.model.document.Document,org.springframework.ui.Model):java.lang.String">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="13">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="2"/>  
+  </message>  
+  <message id="14" operation="findDocTypes():java.util.List&lt;DocType&gt;">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="15"/>  
+  </message>  
+  <message id="16" operation="findDocStatusTypes():java.util.List&lt;DocStatusType&gt;">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>  
+  <message id="18" operation="addAttribute(java.lang.String,java.lang.Object):org.springframework.ui.Model">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="19"/>  
+  </message>  
+  <message id="20" operation="addAttribute(java.lang.String,java.lang.Object):org.springframework.ui.Model">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="21"/>  
+  </message>  
+  <message id="22" operation="addAttribute(java.lang.String,java.lang.Object):org.springframework.ui.Model">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="23"/>  
+  </message>  
+  <message id="24" operation="findDocuments(java.lang.String):java.util.List&lt;Result&gt;">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="25"/>  
+  </message>  
+  <message id="26" 
+    operation="documentsToJson(java.util.List&lt;t124003.backend.model.view.Result&gt;,javax.servlet.http.HttpServletResponse):void">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="27"/>  
+  </message>  
+  <message id="28">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="29" operation="DocumentSearchHibernateService()">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="30"/>  
+  </message>  
+  <message id="31" operation="findDocuments(java.lang.String):java.util.List&lt;Result&gt;">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="32"/>  
+  </message>  
+  <message id="33" operation="Gson()">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="34"/>  
+  </message>  
+  <message id="35" operation="getWriter():java.io.PrintWriter">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="36"/>  
+  </message>  
+  <message id="37" operation="toJson(java.lang.Object):java.lang.String">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="38"/>  
+  </message>  
+  <message id="39" operation="print(java.lang.String):void">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="40"/>  
+  </message>
+</sequence-diagram>
